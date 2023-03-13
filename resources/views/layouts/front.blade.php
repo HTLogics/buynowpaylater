@@ -8,7 +8,7 @@
 		<meta name="description" content="Login Page">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="csrf-token" content="{{ csrf_token() }}">
-        <link href="{{asset('public/assets/frontend/bootstap.css')}}" rel="stylesheet" type="text/css" /> 		
+        <link href="{{asset('public/assets/frontend/css/bootstrap.css')}}" rel="stylesheet" type="text/css" /> 		
         <style>
 		div#kt_content { margin-top: 25px; }
         </style>
