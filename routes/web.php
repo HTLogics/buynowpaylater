@@ -23,6 +23,7 @@ use App\Http\Controllers\Frontend\LoginFrontController;
 //admin
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\CustomerController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [AboutController::class, 'index'])->name('about');
@@ -47,7 +48,8 @@ Route::prefix('admin')->group(function () {
 	Route::get('/dashboard', [DashboardController::class, 'index'])->name('admin.dashboard');
 	
 	/*------------ Customer Create ------------*/
-	//Route::get('/add_customer', [CustomerController::class, 'index'])->name('admin.customer');
+	Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customers');
+	Route::get('/customers_data', [CustomerController::class, 'customersdata'])->name('admin.customersdata');
 });
 
 
