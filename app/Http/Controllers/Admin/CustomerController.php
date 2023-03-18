@@ -28,13 +28,14 @@ class CustomerController extends Controller
 		$data = Customer::get();
 		return 	DataTables::of($data)
 				->addIndexColumn()
-				->addColumn('firstname', function($user) {
-                    return $user->name;
+				->addColumn('status', function($data) {
+					$status = $data->status == 1 ? '<span class="kt-badge  kt-badge--success kt-badge--inline kt-badge--pill">Active</span>' : '<span class="kt-badge  kt-badge--danger kt-badge--inline kt-badge--pill">Deactive</span>';
+					return '<div class="action-list">'.$status.'</div>';                   
                 })
-				->addColumn('action', function($user) {
-                    return '<a href="">View</a>';
+				->addColumn('action', function($data) {
+                    return '<a class="btn btn-sm btn-info" href="'.route('admin.customers', $data->id).'"><i class="la la-eye"></i> View</a> <a class="btn btn-sm btn-warning" href="'.route('admin.customers', $data->id).'"><i class="la la-edit"></i> Edit</a>';
                 })
-				->rawColumns(['firstname'])
+				->rawColumns(['firstname', 'lastname', 'email', 'phone', 'status', 'action'])
 				->make(true);
 		
 	}

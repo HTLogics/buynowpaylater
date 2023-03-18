@@ -40,6 +40,7 @@
 								<th>Last Name</th>
 								<th>Email</th>							
 								<th>Phone</th>							
+								<th>Status</th>							
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -69,7 +70,7 @@ function confirm_del(id){
 }
 
 // begin first table
-$(function () {
+jQuery(function () {
     var table = $('#customers_table').DataTable({
 		responsive: true,
         processing: true,
@@ -85,6 +86,6 @@ $(function () {
             {data: 'action', name: 'action', orderable: false, searchable: false},
         ]
     });
-  });
+});
 </script>
 @endsection
