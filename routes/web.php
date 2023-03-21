@@ -19,6 +19,7 @@ use App\Http\Controllers\Frontend\ShopController;
 use App\Http\Controllers\Frontend\OutwearController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\LoginFrontController;
+use App\Http\Controllers\Frontend\ForgotPasswordController;
 
 //admin
 use App\Http\Controllers\Admin\LoginController;
@@ -31,7 +32,9 @@ Route::get('/products', [ProductController::class, 'index'])->name('product');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/outwear', [OutwearController::class, 'index'])->name('outwear');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
-Route::get('/login', [LoginController::class, 'index'])->name('login');
+Route::get('/login', [LoginFrontController::class, 'index'])->name('login');
+Route::get('/forgot', [ForgotPasswordController::class, 'index'])->name('forgot');
+
 
 Route::prefix('admin')->group(function () {
 	

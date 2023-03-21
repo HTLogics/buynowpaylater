@@ -872,7 +872,7 @@ span.psw {
 	width:100%;
 	margin:auto;
 	max-width:800px;
-	min-height:800px;
+	min-height:670px;
 	position:relative;
 	box-shadow:0 12px 15px 0 rgba(0,0,0,.24),0 17px 50px 0 rgba(0,0,0,.19);
 }
@@ -890,7 +890,7 @@ span.psw {
 	right:0;
 	bottom:0;
 	position:absolute;
-	transform:rotateY(180deg);
+	/*transform:rotateY(180deg);*/
 	backface-visibility:hidden;
 	transition:all .4s linear;
 }
@@ -1008,8 +1008,18 @@ span.psw {
 }
 
 
-
-
+.login-form .alert.alert-success.validation button {
+    float: right;
+    border: navajowhite;
+    background: transparent;
+    font-size: 1.5rem;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    line-height: 1.5rem;
+}
+.alert p {
+    margin: 0;
+}
 
 #heading {
     text-transform: uppercase;

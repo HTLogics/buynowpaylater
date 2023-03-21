@@ -9,7 +9,7 @@
 <div class="row">
 <div class="col-sm-12">
 <div class="banner-title">
-<h1>Login</h1>
+<h1>Forgot Password</h1>
 </div>
 </div>
 </div>
@@ -37,7 +37,7 @@
   
   <div class="login-wrap">
 	<div class="login-html">
-		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Sign In</label>
+		<input id="tab-1" type="radio" name="tab" class="sign-in" checked><label for="tab-1" class="tab">Forgot Password</label>
 		
 		<div class="login-form">
 			<div class="sign-in-htm">
@@ -45,37 +45,22 @@
 				
 				
 				@include('includes.admin.form-login')
-                <form id="loginform" action="{{ route('admin.login.submit') }}" method="POST">
+                <form id="forgotform" action="{{ route('admin.forgot.submit') }}" method="POST">
                   @csrf
                   <div class="group">
-				  <label for="user" class="label">Username</label>
-                    <input type="text" name="user" class="input" placeholder="{{ __('Type User Name') }}" value="" autofocus>
-                  </div>
-                  <div class="group">
-				  <label for="pass" class="label">Password</label>
-                    <input type="password" name="password" class="input" placeholder="{{ __('Type Password') }}">
+                    <input type="email" name="email" class="input" placeholder="{{ __('Type Email Address') }}" value="" required="" autofocus>
                   </div>
                   <div class="group form-forgot-pass">
-                    <div class="left">
-                      <input type="checkbox" name="remember"  id="rp" {{ old('remember') ? 'checked' : '' }}>
-                      <label for="rp">{{ __('Remember Password') }}</label>
-                    </div>
-                    <!--<div class="right">
-                      <a href="{{ route('admin.forgot') }}">
-                        {{ __('Forgot Password?') }}
+                    <div class="right">
+                      <a href="{{ route('admin.login') }}">
+                        {{ __('Remember Password? Login') }}
                       </a>
-                    </div>-->
+                    </div>
                   </div>
 				  <div class="group">
-                  <input id="authdata" type="hidden"  value="{{ __('Authenticating...') }}">
-                  <button class="button submit-btn">{{ __('Login') }}</button>
+                  <input id="authdata" type="hidden"  value="{{ __('Checking...') }}">
+                  <button class="button submit-btn">{{ __('Submit') }}</button>
 				  </div>
-				  <div class="hr"></div>
-				   <div class="foot-lnk">
-					<a href="{{ route('forgot') }}">
-                        {{ __('Forgot Password?') }}
-                      </a>
-					</div>
                 </form>
 				
 				

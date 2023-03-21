@@ -6,7 +6,7 @@
     <meta content="" name="description">
 
     <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
+      <link rel="icon"  type="image/x-icon" href="{{asset('assets/images/favicon.ico')}}"/>
 
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,6 +28,10 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('public/assets/frontend/css/style.css')}}" rel="stylesheet">
+	
+	 
+
+
 	<style>
 		div#kt_content { margin-top: 25px; }
         </style>
@@ -94,7 +98,7 @@
 				<a href="{{route('outwear')}}" class="nav-item nav-link">Outwear</a> 
                 <a href="{{route('contact')}}" class="nav-item nav-link">Contact Us</a>
             </div>
-            <a href="{{route('login')}}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Sign Up/Login<i class="fa fa-arrow-right ms-3"></i></a>
+            <a href="{{route('login')}}" class="btn btn-primary rounded-0 py-4 px-lg-5 d-none d-lg-block">Sign In<i class="fa fa-arrow-right ms-3"></i></a>
         </div>
     </nav>
     <!-- Navbar End -->	
@@ -241,6 +245,12 @@
 
     <!-- Template Javascript -->
     <script src="{{asset('public/assets/frontend/js/main.js')}}"></script>
+	
+	    <!-- Dashboard Core -->
+    <script src="{{asset('public/assets/admin/login/js/vendors/jquery-1.12.4.min.js')}}"></script>
+
+    <!-- AJAX Js-->
+    <script src="{{asset('public/assets/admin/login/js/myscript.js')}}"></script>
 
 
 <div id="lightboxOverlay" class="lightboxOverlay" style="display: none;"></div><div id="lightbox" class="lightbox" style="display: none;"><div class="lb-outerContainer"><div class="lb-container"><img class="lb-image" src="data:image/gif;base64,R0lGODlhAQABAIAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="><div class="lb-nav"><a class="lb-prev" href=""></a><a class="lb-next" href=""></a></div><div class="lb-loader"><a class="lb-cancel"></a></div></div></div><div class="lb-dataContainer"><div class="lb-data"><div class="lb-details"><span class="lb-caption"></span><span class="lb-number"></span></div><div class="lb-closeContainer"><a class="lb-close"></a></div></div></div></div>
