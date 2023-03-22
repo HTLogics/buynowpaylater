@@ -1,39 +1,12 @@
-@php($layoutface = "front")
-@extends('layouts.'.$layoutface)
-@section("content")
+@extends('layouts.admin')
 
-<section class="inner-banner" style="background-image:url('{{asset('public/assets/frontend')}}/img/banner4.jpg');">
+@section('content')
 
-
-<div class="container">
-<div class="row">
-<div class="col-sm-12">
-<div class="banner-title">
-<h1>Add New Items</h1>
-</div>
-</div>
-</div>
-
-</div>
-
-
-</section>
-
-
-
-
-<section class="home-content">
-    <!-- About Start -->
-    <div class="container">
-        <div class="container about px-lg-0">
-            <div class="row g-0 mx-lg-0">
-               
-                <div class="col-lg-12 about-text wow fadeIn" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;">
-                    <div class="p-lg-5 pe-lg-0 ">
-                        <!--<div class="text-center">
-						 <h1 class="mb-4">{{ __('Login Now') }}</h1>
-                <p class="text">{{ __('Welcome back, please sign in below') }}</p>
-                        </div>-->
+<div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
+	<!-- begin:: Content -->
+	<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+		<!--Begin::Dashboard 6-->
+		<!--begin:: Widgets/Stats-->
 						
 <div class="kt-portlet kt-portlet--height-fluid">
 		    <div class="kt-portlet__head">
@@ -95,7 +68,7 @@
 									</div>									
 								</div>
 								</form>
-								<div class="form-group">
+									<div class="form-group">
 									<div id="message"></div>
 								</div>								
 							</div>
@@ -105,18 +78,12 @@
 			</div>
 		</div>
 		<!--End::Row-->
-						
-						
-                    </div>
-                </div>
-            </div>
-        </div>
-						
-    </div>
-	
-	
 
-</section>
+		<!--End::Dashboard 6-->
+	</div>
+
+	<!-- end:: Content -->
+</div>
 
 
 

@@ -1,121 +1,60 @@
-@php($layoutface = "front")
-@extends('layouts.'.$layoutface)
-@section("content")
+@extends('layouts.admin')
 
-<section class="inner-banner" style="background-image:url('{{asset('public/assets/frontend')}}/img/banner4.jpg');">
+@section('content')
 
-
-<div class="container">
-<div class="row">
-<div class="col-sm-12">
-<div class="banner-title">
-<h1>Add Customer Details</h1>
-</div>
-</div>
-</div>
-
-</div>
-
-
-</section>
-
-
-
-
-<section class="home-content">
-    <!-- About Start -->
-    <div class="container">
-        <div class="container about px-lg-0">
-            <div class="row g-0 mx-lg-0">
-               
-                <div class="col-lg-12 about-text wow fadeIn" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeIn;">
-                    <div class="p-lg-5 pe-lg-0 ">
-                        <!--<div class="text-center">
-						 <h1 class="mb-4">{{ __('Login Now') }}</h1>
-                <p class="text">{{ __('Welcome back, please sign in below') }}</p>
-                        </div>-->
+<div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
+	<!-- begin:: Content -->
+	<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
+		<!--Begin::Dashboard 6-->
+		<!--begin:: Widgets/Stats-->
 						
 <div class="kt-portlet kt-portlet--height-fluid">
 		    <div class="kt-portlet__head">
 				<div class="kt-portlet__head-label">
-					<h4>Add Customer Details</h4>	
+					<h4>Generate Bill</h4>	
 				</div>
 			</div>
 			<div class="kt-portlet__body">
 				<div class="panel panel-success col-h">
 					<div class="panel panel-success col-h">							
 							<div class="panel-body">								
-								<form action="#" name="editor" enctype="multipart/form-data" id="customerAdd" method="post">
+								<form action="#" name="editor" enctype="multipart/form-data" id="generateBill" method="post">
 								    <div class="row">		    
 										<div class="col-sm-12">
 										@csrf
-										<div class="col-md-12 ">										
-											<div class="form-group">
-												<label>First Name*</label>										
-												<input type="text" name="first_name" class="form-control" placeholder="First Name">
-											</div>
-										</div>
-										<div class="col-md-12 ">										
-											<div class="form-group">
-												<label>Last Name*</label>										
-												<input type="text" name="last_name" class="form-control" placeholder="Last Name">
-											</div>
-										</div>
+										
 										<div class="col-md-12">										
 											<div class="form-group">
-												<label>Email*</label>
-												<input type="email" name="email" class="form-control" placeholder="Email Address">
-											</div>
-										</div>										
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>Phone</label>
-												<input type="text" name="phone" class="form-control" placeholder="Phone Number">
-											</div>
-										</div>
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>Address</label>										
-												<input type="text" name="address" class="form-control" placeholder="Address">
-											</div>
-										</div>
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>Country</label>										
-												<select name="country" class="form-control form-select" id="country">
-													<option name="">Select Country</option>
+												<label>Choose Customer</label>										
+												<select name="country" class="form-control form-select" id="customer">
+													<option name="">Choose Category</option>
 													
-														<option value="Country">Country</option>
+														<option value="category1">Category 1</option>
+														<option value="category2">Category 2</option>
 													
 												</select>
 											</div>
 										</div>
+												
 										<div class="col-md-12">										
 											<div class="form-group">
-												<label>State</label>										
-												<select name="state" class="form-control" id="state">
-													<option name="">Select State</option>
+												<label>Choose Items</label>										
+												<select name="country" class="form-control form-select" id="items">
+													<option name="">Choose Items</option>
+													
+														<option value="category1">Category 1</option>
+														<option value="category2">Category 2</option>
+													
 												</select>
 											</div>
-										</div>				
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>Zip</label>										
-												<input type="text" name="zip" class="form-control" placeholder="Zip Code">
-											</div>
-										</div>										
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>Status</label>
-												<select name="status" class="form-control form-select">
-													<option value="1">Active</option>
-													<option value="0">Inactive</option>
-												</select>
-											</div>
+										</div>
+
+										
+										
 										</div>										
 										<div class="col-md-12">
 											<div class="form-group">											
-												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Add Customer"><i class="fa fa-plus"></i> Add Customer</button>
+												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Save"> Save</button>
 											</div>										
 										</div>
 									</div>									
@@ -126,23 +65,70 @@
 								</div>								
 							</div>
 						</div>
+						
+						
+						
+						
+						<div class="panel panel-success col-h">
+					<div class="panel panel-success col-h">							
+							<div class="panel-body">								
+								<form action="#" name="editor" enctype="multipart/form-data" id="generateBill" method="post">
+								
+								  <table class="table table-bordered">
+								  <tr>
+									<th>Item Name</th>
+									<th>Price</th>
+									<th>Quantity</th>
+									<th>Total</th>
+								  </tr>
+								  <tr>
+									<td>&nbsp;</td>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+
+								  </tr>
+								  <tr>
+									<td>&nbsp;</td>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+
+								  </tr>
+								  <tr>
+									<td>&nbsp;</td>
+									<th>&nbsp;</th>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+
+								  </tr>
+								 
+								 </table>
+								 
+								 <div class="col-md-12 text-right">
+											<div class="form-group">											
+												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Checkout"> Checkout</button>
+											</div>										
+										</div>
+                               </form>
+
+                                <div class="form-group">
+									<div id="message"></div>
+								</div>								
+							</div>
+						</div>
 					
 				</div>
 			</div>
 		</div>
 		<!--End::Row-->
-						
-						
-                    </div>
-                </div>
-            </div>
-        </div>
-						
-    </div>
-	
-	
 
-</section>
+		<!--End::Dashboard 6-->
+	</div>
+
+	<!-- end:: Content -->
+</div>
+
 
 
 

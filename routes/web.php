@@ -20,9 +20,7 @@ use App\Http\Controllers\Frontend\OutwearController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\LoginFrontController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
-use App\Http\Controllers\Frontend\AddCustomersController;
-use App\Http\Controllers\Frontend\AddNewController;
-use App\Http\Controllers\Frontend\GenerateBillController;
+
 
 
 
@@ -30,6 +28,10 @@ use App\Http\Controllers\Frontend\GenerateBillController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CustomerController;
+use App\Http\Controllers\Admin\AddCustomersController;
+use App\Http\Controllers\Admin\AddNewController;
+use App\Http\Controllers\Admin\GenerateBillController;
+
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about-us', [AboutController::class, 'index'])->name('about');
@@ -39,9 +41,7 @@ Route::get('/outwear', [OutwearController::class, 'index'])->name('outwear');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
 Route::get('/login', [LoginFrontController::class, 'index'])->name('login');
 Route::get('/forgot', [ForgotPasswordController::class, 'index'])->name('forgot');
-Route::get('/add-customers', [AddCustomersController::class, 'index'])->name('add_customers');
-Route::get('/add-new', [AddNewController::class, 'index'])->name('add_new');
-Route::get('/generate-bill', [GenerateBillController::class, 'index'])->name('Generate_bill');
+
 
 
 
@@ -62,6 +62,11 @@ Route::prefix('admin')->group(function () {
 	/*------------ Customer Create ------------*/
 	Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customers');
 	Route::get('/customers_data', [CustomerController::class, 'customersdata'])->name('admin.customersdata');
+	
+	
+	Route::get('/add-customers', [AddCustomersController::class, 'index'])->name('admin.add_customers');
+    Route::get('/add-new', [AddNewController::class, 'index'])->name('admin.add_new');
+    Route::get('/generate-bill', [GenerateBillController::class, 'index'])->name('admin.Generate_bill');
 });
 
 
