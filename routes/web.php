@@ -20,6 +20,11 @@ use App\Http\Controllers\Frontend\OutwearController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\LoginFrontController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
+use App\Http\Controllers\Frontend\AddCustomersController;
+use App\Http\Controllers\Frontend\AddNewController;
+use App\Http\Controllers\Frontend\GenerateBillController;
+
+
 
 //admin
 use App\Http\Controllers\Admin\LoginController;
@@ -34,6 +39,10 @@ Route::get('/outwear', [OutwearController::class, 'index'])->name('outwear');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
 Route::get('/login', [LoginFrontController::class, 'index'])->name('login');
 Route::get('/forgot', [ForgotPasswordController::class, 'index'])->name('forgot');
+Route::get('/add-customers', [AddCustomersController::class, 'index'])->name('add_customers');
+Route::get('/add-new', [AddNewController::class, 'index'])->name('add_new');
+Route::get('/generate-bill', [GenerateBillController::class, 'index'])->name('Generate_bill');
+
 
 
 Route::prefix('admin')->group(function () {

@@ -782,14 +782,24 @@ section.inner-banner::before {
 .box2 .iocn-circle h4 {
     color: #fff;
 }
-
+.text-right button {
+    float: right;
+}
 
 
 
 /* Full-width input fields */
-input[type=text], input[type=password] {
+input[type=text], input[type=password], select {
   width: 100%;
   padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+}
+
+textarea.form-control{
+  width: 100%;
   margin: 8px 0;
   display: inline-block;
   border: 1px solid #ccc;
@@ -1232,6 +1242,70 @@ span.psw {
 input[type="radio"] {
     width: auto !IMPORTANT;
 }
+.kt-portlet {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-flex: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-shadow: 0px 0px 13px 0px rgba(82, 63, 105, 0.05);
+    box-shadow: 0px 0px 13px 0px rgba(82, 63, 105, 0.05);
+    background-color: #ffffff;
+    margin-bottom: 20px;
+    border-radius: 4px;
+}
+.form-control {
+    display: block;
+    width: 100%;
+    height: calc(1.5em + 1.3rem + 2px);
+    padding: 0.65rem 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #e2e5ec;
+    border-radius: 4px;
+    -webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+.form-control:disabled, .form-control:read-only {
+    background-color: transparent;
+    opacity: 1;
+}
+.btn-brand {
+    color: #fff;
+    background-color: #22b9ff;
+    border-color: #22b9ff;
+    color: #ffffff; width: auto;
+}
+.form-group {
+    margin: 25px 0 0 0 !important;
+}
+
+.form-group select.form-control {
+    font-size: 15px;
+}
+.form-control:focus, .form-control:active {
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
+}
+button, select {
+    text-transform: none;
+}
+.form-select {
+    margin: 8px 0;
+}
+
+
 @media(min-width:320px) and (max-width:767px){
 	html, body { overflow-x: hidden;}
 	.navbar-brand img { width: 150px;}
