@@ -140,7 +140,7 @@
 								</li>	
 
 
-                                <li class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a href="{{ route('admin.add_new') }}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-file"></i><span class="kt-menu__link-text">Add New</span></a></li>
+                                <li class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a href="{{ route('admin.add_new') }}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-file"></i><span class="kt-menu__link-text">Add New Item</span></a></li>
 								<li class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a href="{{ route('admin.Generate_bill') }}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-file"></i><span class="kt-menu__link-text">Generate Bill</span></a></li>								
 								
 
