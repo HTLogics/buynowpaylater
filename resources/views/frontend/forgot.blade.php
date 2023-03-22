@@ -52,7 +52,7 @@
                   </div>
                   <div class="group form-forgot-pass">
                     <div class="right">
-                      <a href="{{ route('admin.login') }}">
+                      <a href="{{ route('login') }}">
                         {{ __('Remember Password? Login') }}
                       </a>
                     </div>
