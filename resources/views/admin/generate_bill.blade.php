@@ -20,10 +20,10 @@
 							<div class="panel-body">								
 								<form action="#" name="editor" enctype="multipart/form-data" id="generateBill" method="post">
 								    <div class="row">		    
-										<div class="col-sm-12">
+										
 										@csrf
 										
-										<div class="col-md-12">										
+										<div class="col-sm-5">										
 											<div class="form-group">
 												<label>Choose Customer</label>										
 												<select name="country" class="form-control form-select" id="customer">
@@ -36,7 +36,7 @@
 											</div>
 										</div>
 												
-										<div class="col-md-12">										
+										<div class="col-sm-5">										
 											<div class="form-group">
 												<label>Choose Items</label>										
 												<select name="country" class="form-control form-select" id="items">
@@ -49,60 +49,71 @@
 											</div>
 										</div>
 
-										
-										
-										</div>										
-										<div class="col-md-12">
-											<div class="form-group">											
-												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Save"> Save</button>
+										<div class="col-sm-2 mt-4">
+											<div class="form-group form-btn">											
+												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Save"><i class="la la-plus"></i> Save</button>
 											</div>										
 										</div>
+										
+																				
+										
 									</div>									
-								</div>
+								
 								</form>
+							</div>
 								<div class="form-group">
 									<div id="message"></div>
 								</div>								
-							</div>
-						</div>
+					</div>
+				</div>
 						
 						
 						
 						
-						<div class="panel panel-success col-h">
+				<div class="panel panel-success col-h">
 					<div class="panel panel-success col-h">							
 							<div class="panel-body">								
 								<form action="#" name="editor" enctype="multipart/form-data" id="generateBill" method="post">
 								
-								  <table class="table table-bordered">
+								  <table class="table table-striped- table-bordered table-hover table-checkable dtr-inline">
+								  <thead>
 								  <tr>
 									<th>Item Name</th>
 									<th>Price</th>
 									<th>Quantity</th>
 									<th>Total</th>
 								  </tr>
+								  </thead>
+								  <tbody>
 								  <tr>
-									<td>&nbsp;</td>
-									<th>&nbsp;</th>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
+									<td>Item 1</td>
+									<td>350</td>
+									<td>1</td>
+									<td>350</td>
+
+								  </tr>
+								  <tr>
+									<td>Item 2</td>
+									<td>450</td>
+									<td>1</td>
+									<td>450</td>
+
+								  </tr>
+								  <tr>
+									<td>Item 3</td>
+									<td>400</td>
+									<td>2</td>
+									<td>400</td>
 
 								  </tr>
 								  <tr>
 									<td>&nbsp;</td>
-									<th>&nbsp;</th>
 									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-
-								  </tr>
-								  <tr>
-									<td>&nbsp;</td>
-									<th>&nbsp;</th>
 									<td>&nbsp;</td>
 									<td>&nbsp;</td>
 
 								  </tr>
-								 
+								 </tbody>
 								 </table>
 								 
 								 <div class="col-md-12 text-right">

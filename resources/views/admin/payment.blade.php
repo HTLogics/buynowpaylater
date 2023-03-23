@@ -11,96 +11,93 @@
 <div class="kt-portlet kt-portlet--height-fluid">
 		    <div class="kt-portlet__head">
 				<div class="kt-portlet__head-label">
-					<h4>Add Customer Details</h4>	
+					<h4>Payment</h4>	
 				</div>
 			</div>
 			<div class="kt-portlet__body">
 				<div class="panel panel-success col-h">
 					<div class="panel panel-success col-h">							
 							<div class="panel-body">								
-								<form action="#" name="editor" enctype="multipart/form-data" id="customerAdd" method="post">
+								<form action="#" name="editor" enctype="multipart/form-data" id="payment" method="post">
 								    <div class="row">		    
 										<div class="col-sm-12">
 										@csrf
-										<div class="col-md-12 ">										
+										
+										<div class="col-sm-6">										
 											<div class="form-group">
-												<label>First Name*</label>										
-												<input type="text" name="first_name" class="form-control" placeholder="First Name">
+												<label>No. of Installments</label>										
+												<input type="text" name="no_of_installments" class="form-control" placeholder="2">
 											</div>
 										</div>
-										<div class="col-md-12 ">										
-											<div class="form-group">
-												<label>Last Name*</label>										
-												<input type="text" name="last_name" class="form-control" placeholder="Last Name">
+												
+										<div class="col-sm-6">										
+											<div class="form-group">									
+												<p><b>Total:</b> 12000/</p>
 											</div>
 										</div>
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>Email*</label>
-												<input type="email" name="email" class="form-control" placeholder="Email Address">
-											</div>
-										</div>										
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>Phone</label>
-												<input type="text" name="phone" class="form-control" placeholder="Phone Number">
-											</div>
-										</div>
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>Address</label>										
-												<input type="text" name="address" class="form-control" placeholder="Address">
-											</div>
-										</div>
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>Country</label>										
-												<select name="country" class="form-control form-select" id="country">
-													<option name="">Select Country</option>
-													
-														<option value="Country">Country</option>
-													
-												</select>
-											</div>
-										</div>
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>State</label>										
-												<select name="state" class="form-control" id="state">
-													<option name="">Select State</option>
-												</select>
-											</div>
-										</div>				
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>Zip</label>										
-												<input type="text" name="zip" class="form-control" placeholder="Zip Code">
-											</div>
-										</div>										
-										<div class="col-md-12">										
-											<div class="form-group">
-												<label>Status</label>
-												<select name="status" class="form-control form-select">
-													<option value="1">Active</option>
-													<option value="0">Inactive</option>
-												</select>
-											</div>
-										</div>										
-										<div class="col-md-12">
+                                       </div>
+								    </div>									
+								
+								</form>
+								
+								
+								<table class="table table-striped- table-bordered table-hover table-checkable dtr-inline">
+								  <thead>
+								  <tr>
+									<th>Item Name</th>
+									<th>Price</th>
+									<th>Quantity</th>
+									<th>Total</th>
+								  </tr>
+								  </thead>
+								  <tbody>
+								  <tr>
+									<td>Item 1</td>
+									<td>350</td>
+									<td>1</td>
+									<td>350</td>
+
+								  </tr>
+								  <tr>
+									<td>Item 2</td>
+									<td>450</td>
+									<td>1</td>
+									<td>450</td>
+
+								  </tr>
+								  <tr>
+									<td>Item 3</td>
+									<td>400</td>
+									<td>2</td>
+									<td>400</td>
+
+								  </tr>
+								  <tr>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+									<td>&nbsp;</td>
+
+								  </tr>
+								 </tbody>
+								 </table>
+								 
+								 <div class="col-md-12 text-right">
 											<div class="form-group">											
-												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Add Customer"><i class="la la-plus"></i> Add Customer</button>
+												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Checkout"> Pay</button>
 											</div>										
 										</div>
-									</div>									
-								</div>
-								</form>
-									<div class="form-group">
+							</div>
+								<div class="form-group">
 									<div id="message"></div>
 								</div>								
-							</div>
-						</div>
-					
+					</div>
 				</div>
+						
+						
+						
+						
+
 			</div>
 		</div>
 		<!--End::Row-->
@@ -110,6 +107,7 @@
 
 	<!-- end:: Content -->
 </div>
+
 
 
 

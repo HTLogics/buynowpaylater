@@ -498,6 +498,14 @@ a.remove-banner {
 .c-info-box-area .c-info-box.box2 { border-color: #00BCD1; }
 .c-info-box-area .c-info-box.box3 { border-color: #521FB7; }
 .c-info-box-area .c-info-box.box4 { border-color: #129021; }
+
+.form-group.form-btn {
+    margin-top: 25px !important;
+}
+.form-btn button {
+    width: 100%;
+}
+
 @media (min-width: 320px) and (max-width: 767px) {
 	
 .tab-Details{ flex: 0 0 calc(100% - 0.25rem) !important; width: calc(100% - 0.25rem) !important;} 

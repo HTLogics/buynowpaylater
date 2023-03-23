@@ -29,8 +29,16 @@ use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CustomerController;
 use App\Http\Controllers\Admin\AddCustomersController;
-use App\Http\Controllers\Admin\AddNewController;
+use App\Http\Controllers\Admin\AddItemController;
 use App\Http\Controllers\Admin\GenerateBillController;
+use App\Http\Controllers\Admin\ItemsController;
+use App\Http\Controllers\Admin\CategoryController;
+use App\Http\Controllers\Admin\AddCategoryController;
+use App\Http\Controllers\Admin\PaymentController;
+use App\Http\Controllers\Admin\OrderHistoryController;
+
+
+
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -62,11 +70,26 @@ Route::prefix('admin')->group(function () {
 	/*------------ Customer Create ------------*/
 	Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customers');
 	Route::get('/customers_data', [CustomerController::class, 'customersdata'])->name('admin.customersdata');
+	Route::get('/add-customers', [AddCustomersController::class, 'index'])->name('admin.add_customers');	
+	
+	/*------------ Customer Items ------------*/
+	Route::get('/items', [ItemsController::class, 'index'])->name('admin.items');
+	Route::get('/add-item', [AddItemController::class, 'index'])->name('admin.add_item');
+	
+	/*------------ Cetegory ------------*/
+	Route::get('/category', [CategoryController::class, 'index'])->name('admin.category');
+	Route::get('/add-category', [AddCategoryController::class, 'index'])->name('admin.add_category');
 	
 	
-	Route::get('/add-customers', [AddCustomersController::class, 'index'])->name('admin.add_customers');
-    Route::get('/add-new', [AddNewController::class, 'index'])->name('admin.add_new');
+    /*------------ Generate Bill ------------*/
     Route::get('/generate-bill', [GenerateBillController::class, 'index'])->name('admin.Generate_bill');
+	
+	/*------------ Payment ------------*/
+    Route::get('/payment', [PaymentController::class, 'index'])->name('admin.payment');
+	
+	/*------------ Order History ------------*/
+    Route::get('/order-history', [OrderHistoryController::class, 'index'])->name('admin.order_history');
+	
 });
 
 

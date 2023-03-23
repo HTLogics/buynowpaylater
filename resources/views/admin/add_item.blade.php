@@ -56,7 +56,7 @@
 																			
 										<div class="col-md-12">
 											<div class="form-group">											
-												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Save"> Save</button>
+												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Save"><i class="la la-plus"></i> Save</button>
 											</div>										
 										</div>
 									</div>									

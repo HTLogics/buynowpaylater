@@ -12,7 +12,7 @@ use App\Models\User;
 use App\Models\Order;
 use App\Models\Blog;
 use DB;
-class AddNewController extends Controller
+class AddItemController extends Controller
 {
 
     public function __construct()
@@ -23,7 +23,7 @@ class AddNewController extends Controller
     public function index()
     {	
 	    $data = array();				
-        return view('admin.add_new', $data);
+        return view('admin.add_item', $data);
     }
 
 }
