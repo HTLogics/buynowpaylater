@@ -140,7 +140,7 @@
 								</li>
 								
 								
-								<li class="kt-menu__item  kt-menu__item--submenu kt-menu__item" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon-file"></i><span class="kt-menu__link-text">Category</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
+								<li class="kt-menu__item  kt-menu__item--submenu kt-menu__item" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="javascript:;" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-icon flaticon-app"></i><span class="kt-menu__link-text">Category</span><i class="kt-menu__ver-arrow la la-angle-right"></i></a>
 									<div class="kt-menu__submenu "><span class="kt-menu__arrow"></span>
 										<ul class="kt-menu__subnav">										    
 											<li class="kt-menu__item" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="{{ route('admin.category') }}" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Category</span></a>
@@ -164,11 +164,11 @@
 
 
                                 
-								<li class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a href="{{ route('admin.Generate_bill') }}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-file"></i><span class="kt-menu__link-text">Generate Bill</span></a></li>
+								<li class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a href="{{ route('admin.Generate_bill') }}" class="kt-menu__link "><i class="kt-menu__link-icon la la-money"></i><span class="kt-menu__link-text">Generate Bill</span></a></li>
 								
-                                <li class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a href="{{ route('admin.payment') }}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-file"></i><span class="kt-menu__link-text">Payment</span></a></li>	
+	
 								
-                                <li class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a href="{{ route('admin.order_history') }}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon-file"></i><span class="kt-menu__link-text">Order History</span></a></li>									
+                                <li class="kt-menu__item  kt-menu__item" aria-haspopup="true"><a href="{{ route('admin.order_history') }}" class="kt-menu__link "><i class="kt-menu__link-icon flaticon2-shopping-cart-1"></i><span class="kt-menu__link-text">Order History</span></a></li>									
 								
 
 								

@@ -32,7 +32,7 @@
 												
 										<div class="col-sm-6">										
 											<div class="form-group">									
-												<p><b>Total:</b> 12000/</p>
+												<p><b>Total:</b> 12000.00</p>
 											</div>
 										</div>
                                        </div>
@@ -53,32 +53,26 @@
 								  <tbody>
 								  <tr>
 									<td>Item 1</td>
-									<td>350</td>
+									<td>350.00</td>
 									<td>1</td>
-									<td>350</td>
+									<td>350.00</td>
 
 								  </tr>
 								  <tr>
 									<td>Item 2</td>
-									<td>450</td>
+									<td>450.00</td>
 									<td>1</td>
-									<td>450</td>
+									<td>450.00</td>
 
 								  </tr>
 								  <tr>
 									<td>Item 3</td>
-									<td>400</td>
+									<td>400.00</td>
 									<td>2</td>
-									<td>400</td>
+									<td>400.00</td>
 
 								  </tr>
-								  <tr>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-
-								  </tr>
+								 
 								 </tbody>
 								 </table>
 								 

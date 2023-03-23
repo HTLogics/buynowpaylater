@@ -51,17 +51,10 @@
 						<td class="sorting_1">sub_category</td>
 						<td>Category 1</td>
 						<td><div class="action-list"><span class="kt-badge  kt-badge--success kt-badge--inline kt-badge--pill">Active</span></div></td>
-						<td><a class="btn btn-sm btn-info" href="#"><i class="la la-eye"></i> View</a> <a class="btn btn-sm btn-warning" href="#"><i class="la la-edit"></i> Edit</a></td>
+						<td><a class="btn btn-sm btn-info" href="#"><i class="la la-eye"></i> View</a> <a class="btn btn-sm btn-warning" href="#"><i class="la la-edit"></i> Edit</a> <a class="btn btn-sm btn-primary" href="#"> <i class="la la-trash"></i> Delete </a></td>
 						</tr>
 						
-						<tr role="row" class="odd">
-						<td tabindex="0"></td>
-						<td> </td>
-						<td class="sorting_1"></td>
-						<td></td>
-						<td></td>
-						<td></td>
-						</tr>
+						
 						</tbody>
 					</table>
 				</div>

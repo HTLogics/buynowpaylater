@@ -87,38 +87,33 @@
 								  <tbody>
 								  <tr>
 									<td>Item 1</td>
-									<td>350</td>
+									<td>350.00</td>
 									<td>1</td>
-									<td>350</td>
+									<td>350.00</td>
 
 								  </tr>
 								  <tr>
 									<td>Item 2</td>
-									<td>450</td>
+									<td>450.00</td>
 									<td>1</td>
-									<td>450</td>
+									<td>450.00</td>
 
 								  </tr>
 								  <tr>
 									<td>Item 3</td>
-									<td>400</td>
+									<td>400.00</td>
 									<td>2</td>
-									<td>400</td>
+									<td>800.00</td>
 
 								  </tr>
-								  <tr>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-									<td>&nbsp;</td>
-
-								  </tr>
+								  
 								 </tbody>
 								 </table>
 								 
 								 <div class="col-md-12 text-right">
 											<div class="form-group">											
-												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Checkout"> Checkout</button>
+												<!--<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Checkout"> Checkout</button>-->
+												<a href="{{ route('admin.payment') }}" class="btn btn-brand btn-elevate btn-icon-sm">Checkout</a>
 											</div>										
 										</div>
                                </form>

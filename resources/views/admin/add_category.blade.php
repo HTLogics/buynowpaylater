@@ -30,8 +30,8 @@
 										</div>
 										<div class="col-md-12 ">										
 											<div class="form-group">
-												<label>Slug</label>										
-												<input type="text" name="slug" class="form-control" placeholder="Slug">
+												<label>Category Slug</label>										
+												<input type="text" name="slug" class="form-control" placeholder="Category Slug">
 											</div>
 										</div>
 										
