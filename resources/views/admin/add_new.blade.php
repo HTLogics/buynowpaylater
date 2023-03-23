@@ -28,7 +28,6 @@
 												<input type="text" name="name" class="form-control" placeholder="Name">
 											</div>
 										</div>
-										
 										<div class="col-md-12">										
 											<div class="form-group">
 												<label>Choose Category</label>										
@@ -41,14 +40,12 @@
 												</select>
 											</div>
 										</div>
-												
 										<div class="col-md-12">										
 											<div class="form-group">
 												<label>Price</label>										
 												<input type="text" name="price" class="form-control" placeholder="Price">
 											</div>
-										</div>	
-										
+										</div>											
 										<div class="col-md-12">										
 											<div class="form-group">
 												<label>Description</label>	
@@ -56,10 +53,7 @@
 												
 											</div>
 										</div>
-
-										
-										
-										</div>										
+																			
 										<div class="col-md-12">
 											<div class="form-group">											
 												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Save"> Save</button>
