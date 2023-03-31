@@ -133,7 +133,7 @@
 										<ul class="kt-menu__subnav">										    
 											<li class="kt-menu__item" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="{{ route('admin.customers') }}" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Customers</span></a>
 											</li>
-											<li class="kt-menu__item" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="{{ route('admin.add_customers') }}" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add Customer</span></a>
+											<li class="kt-menu__item" aria-haspopup="true" data-ktmenu-submenu-toggle="hover"><a href="{{ route('admin.add_customer') }}" class="kt-menu__link kt-menu__toggle"><i class="kt-menu__link-bullet kt-menu__link-bullet--line"><span></span></i><span class="kt-menu__link-text">Add Customer</span></a>
 											</li>																				
 										</ul>
 									</div>

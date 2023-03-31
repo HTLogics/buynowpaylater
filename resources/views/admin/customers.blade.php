@@ -16,7 +16,7 @@
 			<div class="kt-portlet__head-toolbar">
 				<div class="kt-portlet__head-wrapper">
 					<div class="kt-portlet__head-actions" style="margin-left:20px">
-						<a href="{{ route('admin.add_customers') }}" class="btn btn-brand btn-elevate btn-icon-sm">
+						<a href="{{ route('admin.add_customer') }}" class="btn btn-brand btn-elevate btn-icon-sm">
 							<i class="la la-plus"></i>
 							Create Customer
 						</a>

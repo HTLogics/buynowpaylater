@@ -7,95 +7,100 @@
 	<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 		<!--Begin::Dashboard 6-->
 		<!--begin:: Widgets/Stats-->
-						
 		<div class="kt-portlet kt-portlet--height-fluid">
 		    <div class="kt-portlet__head">
 				<div class="kt-portlet__head-label">
-					<h4>Add Customer Details</h4>	
+					<h4>Edit Customer Details</h4>	
 				</div>
 			</div>
 			<div class="kt-portlet__body">
 				<div class="panel panel-success col-h">
 					<div class="panel panel-success col-h">							
 							<div class="panel-body">								
-								<form action="{{ route('admin.save_customer') }}" name="editor" enctype="multipart/form-data" id="customerAdd" method="post">
+								<form action="{{ route('admin.update_customer') }}" name="editor" enctype="multipart/form-data" id="customerEdit" method="post">
 								    <div class="row">		    
-										<div class="col-sm-12">
+										<div class="col-lg-12">
 										@csrf
-										<div class="col-md-12 ">										
+										<input type="hidden" name="id" value="{{$customer->id}}">
+										<div class="col-md-12 mb-5">										
 											<div class="form-group">
 												<label>First Name*</label>										
-												<input type="text" name="firstname" class="form-control" placeholder="First Name">
+												<input type="text" name="firstname" class="form-control" placeholder="First Name" value="{{$customer->firstname}}">
 											</div>
 										</div>
-										<div class="col-md-12 ">										
+										<div class="col-md-12 mb-5">										
 											<div class="form-group">
 												<label>Last Name*</label>										
-												<input type="text" name="lastname" class="form-control" placeholder="Last Name">
+												<input type="text" name="lastname" class="form-control" placeholder="Last Name" value="{{$customer->lastname}}">
 											</div>
 										</div>
-										<div class="col-md-12">										
+										<div class="col-md-12 mb-5">										
 											<div class="form-group">
 												<label>Email*</label>
-												<input type="email" name="email" class="form-control" placeholder="Email Address">
+												<input type="email" name="email" class="form-control" placeholder="Email Address" value="{{$customer->email}}">
 											</div>
 										</div>										
-										<div class="col-md-12">										
+										<div class="col-md-12 mb-5">										
 											<div class="form-group">
 												<label>Phone</label>
-												<input type="text" name="phone" class="form-control" placeholder="Phone Number">
+												<input type="text" name="phone" class="form-control" placeholder="Phone Number" value="{{$customer->phone}}">
 											</div>
 										</div>
-										<div class="col-md-12">										
+										<div class="col-md-12 mb-5">										
 											<div class="form-group">
 												<label>Address</label>										
-												<input type="text" name="address" class="form-control" placeholder="Address">
+												<input type="text" name="address" class="form-control" placeholder="Address" value="{{$customer->address}}">
 											</div>
 										</div>
-										<div class="col-md-12">										
+										<div class="col-md-12 mb-5">										
 											<div class="form-group">
 												<label>Country</label>										
-												<select name="country" class="form-control form-select" id="country">
+												<select name="country" class="form-control" id="country">
 													<option value="">Select Country</option>
 													@foreach($countries as $country)
-														<option value="{{$country->iso2}}">{{$country->name}}</option>
+														<option value="{{$country->iso2}}" @if($customer->country == $country->iso2) selected @endif>{{$country->name}}</option>
 													@endforeach
 												</select>
 											</div>
 										</div>
-										<div class="col-md-12">										
+										<div class="col-md-12 mb-5">										
 											<div class="form-group">
 												<label>State</label>										
 												<select name="state" class="form-control" id="state">
-													<option value="">Select State</option>
+													<option name="">Select State</option>
+													@if($customer->state)
+														@php( $states = DB::table('states')->select('iso2','country_code', 'name')->where('country_code', '=', $customer->country)->get() )
+													    @foreach($states as $state)
+															<option value="{{$state->iso2}}" @if($customer->state == $state->iso2) selected @endif>{{$state->name}}</option>
+														@endforeach
+													@endif	
 												</select>
 											</div>
-											<small id="state_loader" style="display:none;font-size: 11px;color: red;margin: 10px 0px 0 0px !important;"><img src="{{ asset('public/assets/admin/media/loading-gif.gif') }}" style="max-width: 20px;margin-right:5px;"/> Loading please wait...</small>
-										</div>				
-										<div class="col-md-12">										
+										</div>																				
+										<div class="col-md-12 mb-5">										
 											<div class="form-group">
 												<label>Zip</label>										
-												<input type="text" name="zip" class="form-control" placeholder="Zip Code">
+												<input type="text" name="zip" class="form-control" placeholder="Zip Code" value="{{$customer->zip}}">
 											</div>
 										</div>										
-										<div class="col-md-12">										
+										<div class="col-md-12 mb-5">										
 											<div class="form-group">
 												<label>Status</label>
-												<select name="status" class="form-control form-select">
-													<option value="1">Active</option>
-													<option value="0">Inactive</option>
+												<select name="status" class="form-control">
+													<option value="1" @if($customer->status == 1) selected @endif>Active</option>
+													<option value="0" @if($customer->status == 0) selected @endif>Inactive</option>
 												</select>
 											</div>
-										</div>										
-										<div class="col-md-12">
+										</div>
+										<div class="col-md-12 mb-5">
 											<div class="form-group">											
-												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Add Customer"><i class="la la-plus"></i> Add Customer</button>
+												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Add Page"><i class="la la-pencil"></i> Edit User</button>
 											</div>										
 										</div>
 									</div>									
 								</div>
 								</form>
-									<div class="form-group">
+								<div class="form-group">
 									<div id="message"></div>
 								</div>								
 							</div>
@@ -112,9 +117,6 @@
 	<!-- end:: Content -->
 </div>
 
-
-
-
 @endsection
 
 @section('scripts')
@@ -122,12 +124,10 @@
 <script>
 $("#country").on("change", function(){
 	var country_code = this.value;
-	$('#state_loader').show();
 	$.ajax({
 		url: "{{ route('admin.login') }}/states/"+country_code,
 		success: function(data){
 			jQuery('#state').html(data);
-			$('#state_loader').hide();
 		}
 	});
 });
@@ -142,7 +142,7 @@ $('#image-upload').on('change', function(){
 	}
 });
 
-jQuery("#customerAdd").submit(function(e) {
+jQuery("#customerEdit").submit(function(e) {
 	
 	e.preventDefault();
 	

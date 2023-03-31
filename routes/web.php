@@ -28,7 +28,6 @@ use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\AddCustomersController;
 use App\Http\Controllers\Admin\AddItemController;
 use App\Http\Controllers\Admin\GenerateBillController;
 use App\Http\Controllers\Admin\ItemsController;
@@ -70,7 +69,11 @@ Route::prefix('admin')->group(function () {
 	/*------------ Customer Create ------------*/
 	Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customers');
 	Route::get('/customers_data', [CustomerController::class, 'customersdata'])->name('admin.customersdata');
-	Route::get('/add-customers', [AddCustomersController::class, 'index'])->name('admin.add_customers');	
+	Route::get('/add_customer', [CustomerController::class, 'addCustomer'])->name('admin.add_customer');
+	Route::post('/save_customer', [CustomerController::class, 'saveCustomer'])->name('admin.save_customer');
+	
+	Route::get('/edit_customer/{id}', [CustomerController::class, 'editCustomer'])->name('admin.edit_customer');	
+	Route::post('/update_customer', [CustomerController::class, 'updateCustomer'])->name('admin.update_customer');	
 	
 	/*------------ Customer Items ------------*/
 	Route::get('/items', [ItemsController::class, 'index'])->name('admin.items');
@@ -89,6 +92,9 @@ Route::prefix('admin')->group(function () {
 	
 	/*------------ Order History ------------*/
     Route::get('/order-history', [OrderHistoryController::class, 'index'])->name('admin.order_history');
+	
+	/*---sate---*/	
+	Route::get('/states/{id}', [CustomerController::class, 'getState'])->name('admin.states');
 	
 });
 
