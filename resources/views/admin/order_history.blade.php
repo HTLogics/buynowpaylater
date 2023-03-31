@@ -39,8 +39,7 @@
 								<th>Order Id</th>
 								<th>Customer Name</th>
 								<th>Order Status</th>
-								<th>Amount</th>	
-                                <th>Status</th>								
+								<th>Total Amount</th>								
 								<th>Action</th>
 							</tr>
 						</thead>
@@ -50,8 +49,7 @@
 						<td>abc</td>
 						<td>open</td>
 						<td>12000.00</td>
-						<td><span class="kt-badge kt-badge--warning kt-badge--inline kt-badge--lg">Processing</span></td>
-						<td><a class="btn btn-sm btn-info" href="#"><i class="la la-eye"></i> View</a> </td>
+						<td><a class="btn btn-sm btn-info" href="{{ route('admin.order_view') }}"><i class="la la-eye"></i> View</a> </td>
 						</tr>
 						
 						

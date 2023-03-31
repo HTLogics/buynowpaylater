@@ -20,7 +20,7 @@
 							<div class="panel-body">								
 								<form action="#" name="editor" enctype="multipart/form-data" id="payment" method="post">
 								    <div class="row">		    
-										<div class="col-sm-12">
+										
 										@csrf
 										
 										<div class="col-sm-6">										
@@ -29,13 +29,20 @@
 												<input type="text" name="no_of_installments" class="form-control" placeholder="2">
 											</div>
 										</div>
+										
+										<div class="col-sm-6">										
+											<div class="form-group">
+												<label>EMI Installments</label>										
+												<input type="text" name="no_of_installments" class="form-control" placeholder="4">
+											</div>
+										</div>
 												
 										<div class="col-sm-6">										
 											<div class="form-group">									
 												<p><b>Total:</b> 12000.00</p>
 											</div>
 										</div>
-                                       </div>
+                                       
 								    </div>									
 								
 								</form>
@@ -43,7 +50,7 @@
 								
 								<table class="table table-striped- table-bordered table-hover table-checkable dtr-inline">
 								  <thead>
-								  <tr>
+								  <tr class="kt-card-heading">
 									<th>Item Name</th>
 									<th>Price</th>
 									<th>Quantity</th>
@@ -69,7 +76,7 @@
 									<td>Item 3</td>
 									<td>400.00</td>
 									<td>2</td>
-									<td>400.00</td>
+									<td>800.00</td>
 
 								  </tr>
 								 

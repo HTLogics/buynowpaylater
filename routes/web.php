@@ -35,7 +35,7 @@ use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\AddCategoryController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\OrderHistoryController;
-
+use App\Http\Controllers\Admin\OrderViewController;
 
 
 
@@ -92,6 +92,7 @@ Route::prefix('admin')->group(function () {
 	
 	/*------------ Order History ------------*/
     Route::get('/order-history', [OrderHistoryController::class, 'index'])->name('admin.order_history');
+	Route::get('/order-history/1', [OrderViewController::class, 'index'])->name('admin.order_view');
 	
 	/*---sate---*/	
 	Route::get('/states/{id}', [CustomerController::class, 'getState'])->name('admin.states');
