@@ -115,7 +115,45 @@
 													</div>
 												</div>
 											
-												
+												<div class="row">
+													<div class="col-lg-12">
+														<div class="kt-invoice-card">
+															<h3 class="kt-card-heading"> Ordered</h3>
+															<div class="table-responsive-sm">
+																<table class="table table-borderless invoice-products">
+																	<tbody>
+																		<tr>
+																			<th width="20%">ID</th>
+																			<th>Name</th>
+																			<th width="20%">Qty</th>
+																			<th width="20%">Price</th>
+																			<th width="20%" style="text-align: right;">Total Price</th>
+																		</tr>
+																																																						<tr>
+																			<td width="20%">1
+																			</td><td>abc
+																			</td><td width="20%"><b>Qty</b>: 1
+																			</td><td width="20%"><b>Price</b>: R 12000.00
+																																		
+																			</td><td width="20%" style="text-align: right;">R 12000.00</td>
+																		</tr>
+																																																					</tbody>
+																	<tfoot>
+																		
+																																																																
+																		
+																																																						<tr>
+																			<td colspan="3"></td>
+																			<th>Total</th>
+																			<td>R 12000.00
+																			</td>
+																		</tr>
+																	</tfoot>
+																</table>
+															</div>
+														</div>		
+													</div>
+												</div>
 											</div>										
 										</div>							
 									</div>
