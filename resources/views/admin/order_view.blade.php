@@ -13,7 +13,7 @@
 						<div id="message"></div>
 					</div>
 				</div>		    
-				<div class="col-lg-9">
+				<div class="col-lg-12">
 				    <div class="kt-portlet kt-portlet--height-fluid">
 						<div class="kt-portlet__head">
 							<div class="kt-portlet__head-label">
@@ -46,14 +46,6 @@
 																			<th width="10%">:
 																			</th><td width="45%">2023-03-31 06:21:36</td>
 																		</tr>
-																		<tr>
-																			<th width="45%">Total Product</th>
-																			<th width="10%">:
-																			</th><td width="45%">1</td>
-																		</tr>
-																		
-																			
-																		
 																																																						
 																		<tr>
 																			<th width="45%">Total Amount</th>
@@ -122,94 +114,8 @@
 														</div>
 													</div>
 												</div>
-												<div class="row">
-													<div class="col-lg-6">
-														<div class="kt-card">
-															<h3 class="kt-card-heading">Shipping Details</h3>
-															<table class="table table-borderless">
-																<tbody>
-																	<tr>
-																		<th width="45%">Name</th>
-																		<th width="10%">:</th>
-																		<td width="45%">abc</td>
-																	</tr>
-																	<tr>
-																		<th width="45%">Email</th>
-																		<th width="10%">:</th>
-																		<td width="45%">abc@gmail.com</td>
-																	</tr>
-																	<tr>
-																		<th width="45%">Phone</th>
-																		<th width="10%">:</th>
-																		<td width="45%">0123456789</td>
-																	</tr>
-																	<tr>
-																		<th width="45%">Address</th>
-																		<th width="10%">:</th>
-																		<td width="45%">123 Lorem Ipsum Cont</td>
-																	</tr>
-																	<tr>
-																		<th width="45%">Country</th>
-																		<th width="10%">:</th>
-																		<td width="45%">xyz</td>
-																	</tr>
-																	<tr>
-																		<th width="45%">City</th>
-																		<th width="10%">:</th>
-																		<td width="45%">abcd</td>
-																	</tr>
-																	<tr>
-																		<th width="45%">Postal Code</th>
-																		<th width="10%">:</th>
-																		<td width="45%">0123</td>
-																	</tr>
-																</tbody>
-															</table>
-														</div>
-													</div>
-												</div>
-												<div class="row">
-													<div class="col-lg-12">
-														<div class="kt-invoice-card">
-															<h3 class="kt-card-heading">Products Ordered</h3>
-															<div class="table-responsive-sm">
-																<table class="table table-borderless invoice-products">
-																	<tbody>
-																		<tr>
-																			<th width="20%">ID</th>
-																			<th>Name</th>
-																			<th width="20%">Qty</th>
-																			<th width="20%">Price</th>
-																			<th width="20%" style="text-align: right;">Total Price</th>
-																		</tr>
-																																																						<tr>
-																			<td width="20%">1
-																			</td><td>abc
-																			</td><td width="20%"><b>Qty</b>: 1
-																			</td><td width="20%"><b>Price</b>: R 12000.00
-																																		
-																			</td><td width="20%" style="text-align: right;">R 12000.00</td>
-																		</tr>
-																																																					</tbody>
-																	<tfoot>
-																		<tr>
-																			<th colspan="4">Subtotal</th>
-																			<td>R 12000.00</td>
-																		</tr>
-																																																																
-																		
-																																																						<tr>
-																			<td colspan="3"></td>
-																			<th>Total</th>
-																			<td>R 12000.00
-																			</td>
-																		</tr>
-																	</tfoot>
-																</table>
-															</div>
-														</div>		
-													</div>
-												</div>
+											
+												
 											</div>										
 										</div>							
 									</div>
@@ -218,49 +124,7 @@
 						</div>					
 					</div>
 				</div>
-			    <div class="col-lg-3">
-				    <div class="kt-portlet">
-						<div class="kt-portlet__body">
-							<form action="#" name="orderStatus" enctype="multipart/form-data" id="orderStatus" method="post">
-							    <input type="hidden" name="_token" value="">								
-								<input type="hidden" name="id" value="1">
-								<div class="form-group">	
-									<label>Change Order Status</label>
-									<select name="status" class="form-control">									 
-										<option value="pending">Pending</option>
-										<option value="confirmed">Confirmed</option>
-										<option value="processing" selected="">Processing</option>
-										<option value="shipped">Shipped</option>
-										<option value="completed">Completed</option>
-										<option value="declined">Declined</option>
-										<option value="refunded">Refunded</option>										
-									</select>							
-								</div>						    
-								<div class="form-group">	
-									<label>Change Payment Status</label>
-									<select name="payment_status" class="form-control">										
-										<option value="pending">Pending</option>
-										<option value="paid" selected="">Paid</option>									
-									</select>					
-								</div>								
-								<div class="form-group">
- 								    <label class="col-form-label">Send email to customer.</label>
-									<div>
-									<span class="kt-switch kt-switch--success kt-switch--icon">
-										<label>
-											<input type="checkbox" name="send_mail" value="1">
-											<span></span>
-										</label>
-									</span>
-									</div>
-								</div>
-								<div class="form-group">
-									<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm"><i class="la la-plus"></i> Update</button>
-								</div>
-							</form>	
-						</div>
-					</div>
-				</div>
+			    
 			</div>	
 		<!--End::Row-->
 		<!--End::Dashboard 6-->

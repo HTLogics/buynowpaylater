@@ -77,7 +77,7 @@
 								
 								  <table class="table table-striped- table-bordered table-hover table-checkable dtr-inline">
 								  <thead>
-								  <tr>
+								  <tr class="kt-card-heading">
 									<th>Item Name</th>
 									<th>Price</th>
 									<th>Quantity</th>
@@ -87,26 +87,20 @@
 								  <tbody>
 								  <tr>
 									<td>Item 1</td>
-									<td>350.00</td>
-									<td>1</td>
-									<td>350.00</td>
+									<td>120.00</td>
+									<td>2</td>
+									<td>240.00</td>
 
 								  </tr>
 								  <tr>
 									<td>Item 2</td>
-									<td>450.00</td>
-									<td>1</td>
-									<td>450.00</td>
-
-								  </tr>
-								  <tr>
-									<td>Item 3</td>
-									<td>400.00</td>
-									<td>2</td>
-									<td>800.00</td>
+									<td>140.00</td>
+									<td>3</td>
+									<td>420.00</td>
 
 								  </tr>
 								  
+								 
 								 </tbody>
 								 </table>
 								 

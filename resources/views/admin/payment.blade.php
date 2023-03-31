@@ -20,8 +20,14 @@
 							<div class="panel-body">								
 								<form action="#" name="editor" enctype="multipart/form-data" id="payment" method="post">
 								    <div class="row">		    
-										
+										<div class="col-sm-12">	
 										@csrf
+										
+										<div class="col-sm-6">										
+											<div class="form-group">									
+												<p><b>Total Amount:</b> 12000.00</p>
+											</div>
+										</div>
 										
 										<div class="col-sm-6">										
 											<div class="form-group">
@@ -30,21 +36,18 @@
 											</div>
 										</div>
 										
+										
 										<div class="col-sm-6">										
 											<div class="form-group">
 												<label>EMI Installments</label>										
-												<input type="text" name="no_of_installments" class="form-control" placeholder="4">
+												<input type="text" name="no_of_installments" class="form-control" placeholder="6000">
 											</div>
 										</div>
 												
-										<div class="col-sm-6">										
-											<div class="form-group">									
-												<p><b>Total:</b> 12000.00</p>
-											</div>
-										</div>
+										
                                        
 								    </div>									
-								
+								</div>
 								</form>
 								
 								
@@ -60,25 +63,19 @@
 								  <tbody>
 								  <tr>
 									<td>Item 1</td>
-									<td>350.00</td>
-									<td>1</td>
-									<td>350.00</td>
+									<td>120.00</td>
+									<td>2</td>
+									<td>240.00</td>
 
 								  </tr>
 								  <tr>
 									<td>Item 2</td>
-									<td>450.00</td>
-									<td>1</td>
-									<td>450.00</td>
+									<td>140.00</td>
+									<td>3</td>
+									<td>420.00</td>
 
 								  </tr>
-								  <tr>
-									<td>Item 3</td>
-									<td>400.00</td>
-									<td>2</td>
-									<td>800.00</td>
-
-								  </tr>
+								  
 								 
 								 </tbody>
 								 </table>
