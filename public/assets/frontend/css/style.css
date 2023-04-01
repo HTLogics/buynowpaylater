@@ -1304,7 +1304,16 @@ button, select {
 .form-select {
     margin: 8px 0;
 }
-
+button.close.alert-close {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    border: 0 !important;
+}
 
 @media(min-width:320px) and (max-width:767px){
 	html, body { overflow-x: hidden;}

@@ -63,7 +63,7 @@
 function confirm_del(id){
 	  var r = confirm("Do you want to delete?");
 	  if (r == true) {
-		  window.location.href = "{{ route('admin.login') }}/deletecustomer/"+id;
+		  window.location.href = "{{ route('admin.login') }}/delete_customer/"+id;
 	  } else {
 		  //do nothing
 	 }

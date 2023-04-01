@@ -1,37 +1,26 @@
 @php($layoutface = "front")
 @extends('layouts.'.$layoutface)
 @section("content")
-
-
 <section class="inner-banner" style="background-image:url('{{asset('public/assets/frontend')}}/img/banner4.jpg');">
-
-
-<div class="container">
-<div class="row">
-<div class="col-sm-12">
-<div class="banner-title">
-<h1>Our Products</h1>
-</div>
-</div>
-</div>
-
-</div>
-
-
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-12">
+				<div class="banner-title">
+					<h1>Our Products</h1>
+				</div>
+			</div>
+		</div>
+	</div>
 </section>
-
-
 <section class="home-content">
-       <!-- Projects Start -->
+    <!-- Projects Start -->
     <div class="container-xxl py-5">
         <div class="container">
             <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
                 <h1 class="mb-4">Our Products</h1>
 				 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>							
-            </div>
-			
-			<div class="row g-4">
-			
+            </div>			
+			<div class="row g-4">			
 			<div class="col-sm-3">
 			<div class="left-sidebar">
 			<h3>All Categories</h3>
@@ -165,10 +154,7 @@
                 </div>
             </div>
 			</div>
-			
-			</div>
-
-            
+			</div>           
         </div>
     </div>
     <!-- Projects End -->

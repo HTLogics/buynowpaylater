@@ -36,7 +36,7 @@ class CustomerController extends Controller
 					return '<div class="action-list">'.$status.'</div>';                   
                 })
 				->addColumn('action', function($data) {
-                    return '<a class="btn btn-sm btn-info" href="'.route('admin.customers', $data->id).'"><i class="la la-eye"></i> View</a> <a class="btn btn-sm btn-warning" href="#"><i class="la la-edit"></i> Edit</a>';
+                    return '<a class="btn btn-sm btn-info" href="'.route('admin.view_customer', $data->id).'"><i class="la la-eye"></i> View</a> <a class="btn btn-sm btn-warning" href="'.route('admin.edit_customer', $data->id).'"><i class="la la-edit"></i> Edit</a> <a class="btn btn-sm btn-elevate btn-danger" href="javascript:void(0);" onclick="confirm_del('.$data->id.')"><i class="la la-trash"></i> Delete</a>';
                 })
 				->rawColumns(['firstname', 'lastname', 'email', 'phone', 'status', 'action'])
 				->make(true);
@@ -92,7 +92,7 @@ class CustomerController extends Controller
 			return response()->json(array(
 									'redirect' => route('admin.customers'),
 									'status' => true,
-									'message' => "<div class='alert alert-success'>Category created. please wait...</div>",	
+									'message' => "<div class='alert alert-success'>Customer created. please wait...</div>",	
 								));
 		}
 		
@@ -112,7 +112,7 @@ class CustomerController extends Controller
 		$rules = [
 			'firstname' => 'required',
 			'lastname' => 'required',
-			'email' => 'required|unique:customers',
+			'email' => 'required|unique:customers,email,'.$request->id,
 			'phone' => 'required',
 			'address' => 'required',
 			'state' => 'required',
@@ -141,11 +141,11 @@ class CustomerController extends Controller
 		);
 		
 		$update = $data->update($update_data);
-		if($customer){
+		if($update){
 			return response()->json(array(
 									'redirect' => route('admin.customers'),
 									'status' => true,
-									'message' => "<div class='alert alert-success'>Category updated.</div>",	
+									'message' => "<div class='alert alert-success'>Customer updated.</div>",	
 								));
 		}
 		
@@ -154,11 +154,17 @@ class CustomerController extends Controller
 	}
 	
 	function deleteCustomer($id){
-		$delete = Customer::where('id', '=', $request->id)->delete();
+		$delete = Customer::where('id', '=', $id)->delete();
 		if($delete){
 			return redirect()->route('admin.customers')->with('success', "Customer deleted successfully.");
 		}
 	}
 	
-
+    public function viewCustomer($id)
+    {	
+	    $data = array();
+		$data['customer'] = Customer::find($id);
+		$data['countries'] = Country::all();
+        return view('admin.view_customers', $data);
+    }
 }

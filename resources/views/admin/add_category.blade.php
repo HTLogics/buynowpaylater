@@ -6,9 +6,8 @@
 	<!-- begin:: Content -->
 	<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
 		<!--Begin::Dashboard 6-->
-		<!--begin:: Widgets/Stats-->
-						
-<div class="kt-portlet kt-portlet--height-fluid">
+		<!--begin:: Widgets/Stats-->						
+		<div class="kt-portlet kt-portlet--height-fluid">
 		    <div class="kt-portlet__head">
 				<div class="kt-portlet__head-label">
 					<h4>Add Category</h4>	
@@ -80,14 +79,7 @@
 
 	<!-- end:: Content -->
 </div>
-
-
-
-
 @endsection
-
 @section('scripts')
 <script src="{{ asset('public/assets/admin/ckeditor/ckeditor.js')}}"></script>
-
-
 @endsection
