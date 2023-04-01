@@ -70,10 +70,11 @@ Route::prefix('admin')->group(function () {
 	Route::get('/customers', [CustomerController::class, 'index'])->name('admin.customers');
 	Route::get('/customers_data', [CustomerController::class, 'customersdata'])->name('admin.customersdata');
 	Route::get('/add_customer', [CustomerController::class, 'addCustomer'])->name('admin.add_customer');
-	Route::post('/save_customer', [CustomerController::class, 'saveCustomer'])->name('admin.save_customer');
-	
+	Route::post('/save_customer', [CustomerController::class, 'saveCustomer'])->name('admin.save_customer');	
 	Route::get('/edit_customer/{id}', [CustomerController::class, 'editCustomer'])->name('admin.edit_customer');	
 	Route::post('/update_customer', [CustomerController::class, 'updateCustomer'])->name('admin.update_customer');	
+	Route::get('/delete_customer/{id}', [CustomerController::class, 'deleteCustomer'])->name('admin.delete_customer');	
+	Route::get('/view_customer/{id}', [CustomerController::class, 'viewCustomer'])->name('admin.view_customer');	
 	
 	/*------------ Customer Items ------------*/
 	Route::get('/items', [ItemsController::class, 'index'])->name('admin.items');
