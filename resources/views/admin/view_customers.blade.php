@@ -50,11 +50,16 @@
 										{{$customer->address}},								
 										@if($customer->state)
 											@php( $state = DB::table('states')->select('iso2', 'name')->where('country_code', '=', $customer->country)->where('iso2', '=', $customer->state)->first() )
-											{{$state->name}},
+										    @if($state)
+												{{$state->name}},
+											@endif	
 										@endif
 										@if($customer->country)
 											@php( $country = DB::table('countries')->select('iso2', 'name')->where('iso2', '=', $customer->country)->first() )
-											{{$country->name}},
+										    @if($country)
+												{{$country->name}},
+											@endif	
+											
 										@endif	
 										{{$customer->zip}}</td></tr>
 									<tr><th>Created at</th><td>{{$customer->created_at}}</td></tr>

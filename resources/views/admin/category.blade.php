@@ -1,7 +1,5 @@
 @extends('layouts.admin')
-
 @section('content')
-
 <!-- begin:: Content -->
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid" style="margin-top:30px">
 			
@@ -33,7 +31,7 @@
 				<div class="kt-section__content">
 				 @include('includes.admin.flash-message')
 				   
-					<table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline" id="items_table">
+					<table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline" id="categories_table">
 						<thead>
 							<tr>
 								<th>#</th>
@@ -44,27 +42,44 @@
 								<th>Action</th>
 							</tr>
 						</thead>
-						<tbody>						    
-						<tr role="row" class="odd">
-						<td tabindex="0">1</td>
-						<td>Sub Category </td>
-						<td class="sorting_1">sub_category</td>
-						<td>Category 1</td>
-						<td><div class="action-list"><span class="kt-badge  kt-badge--success kt-badge--inline kt-badge--pill">Active</span></div></td>
-						<td><a class="btn btn-sm btn-info" href="#"><i class="la la-eye"></i> View</a> <a class="btn btn-sm btn-warning" href="#"><i class="la la-edit"></i> Edit</a> <a class="btn btn-sm btn-primary" href="#"> <i class="la la-trash"></i> Delete </a></td>
-						</tr>
-						
-						
+						<tbody>
 						</tbody>
 					</table>
 				</div>
 			</div>
-
-			<!--end::Section-->
-			
+			<!--end::Section-->			
 		</div>
 	</div>
 	<!--end::Portlet-->
 </div>
 <!-- end:: Content -->
+@endsection
+@section('scripts')
+<script type="text/javascript">
+function confirm_del(id){
+	var r = confirm('Do you want to delete?');
+	if(r==true){
+		window.location.href = "{{ route('admin.login') }}/delete_category/"+id;
+	}else{
+		//do nothing
+	}
+	
+}
+jQuery(function(){
+	var table = $('#categories_table').DataTable({
+		responsive: true,
+		processing: true,
+		serverSide: true,
+		ajax: "{{ route('admin.categories_data') }}",
+		columns: [
+			{data: 'DT_RowIndex', name: 'DT_RowIndex'},
+			{data: 'name', name: 'firstname'},
+			{data: 'slug', name: 'lastname'},
+			{data: 'parent', name: 'email'},
+			{data: 'status', name: 'status'},
+			{data: 'action', name: 'action', orderable: false, searchable: false},
+		]
+	});
+});
+</script>
 @endsection

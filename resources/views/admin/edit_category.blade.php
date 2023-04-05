@@ -33,24 +33,25 @@
 				<div class="panel panel-success col-h">
 					<div class="panel panel-success col-h">							
 							<div class="panel-body">								
-								<form action="{{ route('admin.savecategory') }}" name="editor" enctype="multipart/form-data" id="categoryAdd" method="post">
+								<form action="{{ route('admin.updatecategory') }}" name="editor" enctype="multipart/form-data" id="categoryAdd" method="post">
 								    @csrf
+									<input type="hidden" name="id" value="{{$category->id}}">
 								    <div class="col-md-12 mb-5">										
 										<div class="form-group">
 											<label>Category Name</label>										
-											<input type="text" name="name" class="form-control">
+											<input type="text" name="name" class="form-control" value="{{$category->name}}">
 										</div>
 									</div>
 									<div class="col-md-12 mb-5">										
 										<div class="form-group">
 											<label>Category Slug</label>										
-											<input type="text" name="slug" class="form-control">
+											<input type="text" name="slug" value="{{$category->slug}}" class="form-control">
 										</div>
 									</div>
 									<div class="col-md-12 mb-5">										
 										<div class="form-group">
 											<label>Category Description</label>
-											<textarea rows="10" name="description" id="description" class="form-control" placeholder=""></textarea>
+											<textarea rows="10" name="description" id="description" class="form-control" placeholder="">{{$category->description}}</textarea>
 										</div>
 									</div>																		
 									<div class="col-md-12 mb-5">
@@ -59,13 +60,13 @@
 											<select name="parent" class="form-control">
 											<option value="0">--</option>
 											@foreach($catgory_tree as $tree)											
-												<option value="{{ $tree['id'] }}">{{ $tree['name'] }}</option>
+												<option value="{{ $tree['id'] }}" @if($category->parent == $tree['id']) selected @endif>{{ $tree['name'] }}</option>
 												@if($tree['childs'])
 													@foreach($tree['childs'] as $sub)
-														<option value="{{ $sub['id'] }}">-{{ $sub['name'] }}</option>
+														<option value="{{ $sub['id'] }}" @if($category->parent == $sub['id']) selected @endif>-{{ $sub['name'] }}</option>
 														<?php /* @if($sub['childs'])
 															@foreach($sub['childs'] as $subchild)
-																<option value="{{ $subchild['id'] }}">--{{ $subchild['name'] }}</option>
+																<option value="{{ $subchild['id'] }}" @if($category->parent == $subchild['id']) selected @endif>--{{ $subchild['name'] }}</option>
 															@endforeach
 														@endif */ ?>
 													@endforeach
@@ -78,14 +79,14 @@
 										<div class="form-group">
 											<label>Status</label>
 											<select name="status" class="form-control">
-											    <option value="1">Enable</option>
-												<option value="0">Disable</option>
+											    <option value="1" @if($category->status ==1) selected @endif>Enable</option>
+												<option value="0" @if($category->status ==0) selected @endif>Disable</option>
 											</select>
 										</div>
 									</div>
  									<div class="col-md-12 mb-5">
 										<div class="form-group">
-											<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Add Store"><i class="la la-plus"></i> Add Category</button>
+											<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Edit Category"><i class="la la-pencil"></i> Edit Category</button>
 										</div>										
 									</div>
 								</form>
@@ -157,7 +158,6 @@ jQuery("#categoryAdd").submit(function(e) {
 			if(data.status==true){
        
 				jQuery("input[type=text],select,textarea").css('border','1px solid #1abb9c').delay( 2000 ).css('border','1px solid #e2e2e4');
-				jQuery("input[type=text],select,textarea").val('');				
 				jQuery('#message').html(data.message);  
 				jQuery("#message").fadeIn(100);
 				jQuery("html, body").animate({
@@ -165,9 +165,9 @@ jQuery("#categoryAdd").submit(function(e) {
 				}, 1000);
 				jQuery("#message").delay(3000);
 				jQuery("#message").fadeOut(100);
-                setTimeout(function() {
+                /*setTimeout(function() {
                    window.location.href = data.redirect;
-                }, 3000);		
+                }, 3000);*/
 			}             
            }
          });

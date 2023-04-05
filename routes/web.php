@@ -82,7 +82,12 @@ Route::prefix('admin')->group(function () {
 	
 	/*------------ Cetegory ------------*/
 	Route::get('/category', [CategoryController::class, 'index'])->name('admin.category');
-	Route::get('/add-category', [AddCategoryController::class, 'index'])->name('admin.add_category');
+	Route::get('/add-category', [CategoryController::class, 'addCategory'])->name('admin.add_category');
+	Route::post('/save_category', [CategoryController::class, 'saveCategory'])->name('admin.savecategory');
+	Route::get('/edit_category/{id}', [CategoryController::class, 'editCategory'])->name('admin.edit_category');
+	Route::post('/update_category', [CategoryController::class, 'updateCategory'])->name('admin.updatecategory');
+	Route::get('/categories_data', [CategoryController::class, 'categoriesData'])->name('admin.categories_data');
+	Route::get('/delete_category/{id}', [CategoryController::class, 'deleteCategory'])->name('admin.delete_category');
 	
 	
     /*------------ Generate Bill ------------*/
