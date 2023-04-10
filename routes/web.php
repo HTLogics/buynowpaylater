@@ -21,9 +21,6 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\LoginFrontController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 
-
-
-
 //admin
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
