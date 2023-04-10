@@ -59,11 +59,10 @@
 function confirm_del(id){
 	var r = confirm('Do you want to delete?');
 	if(r==true){
-		window.location.href = "{{ route('admin.login') }}/delete_category/"+id;
+		window.location.href = "{{ route('admin.login') }}/delete_item/"+id;
 	}else{
 		//do nothing
-	}
-	
+	}	
 }
 jQuery(function(){
 	var table = $('#categories_table').DataTable({

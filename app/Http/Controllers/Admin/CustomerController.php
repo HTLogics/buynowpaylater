@@ -13,6 +13,7 @@ use App\Models\State;
 use DB;
 use DataTables;
 use Validator;
+use Response;
 class CustomerController extends Controller
 {
 
@@ -167,4 +168,15 @@ class CustomerController extends Controller
 		$data['countries'] = Country::all();
         return view('admin.view_customers', $data);
     }
+	
+	public function searchCustomer(){
+		$data = array();
+		if (request('q')) {
+			$data['total_count'] = Customer::select('id', 'firstname as text')->where('firstname', 'Like', '%' . request('q') . '%')->count();
+			$data['results'] = Customer::select('id', 'firstname as text')->where('firstname', 'Like', '%' . request('q') . '%')->get();
+		}	
+		return Response::json($data);
+	}
+	
+	
 }

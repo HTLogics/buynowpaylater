@@ -16,127 +16,50 @@
 			
 			</div>
 		</div>
-		<form action="{{ route('admin.saveproduct') }}" name="productAdd" enctype="multipart/form-data" id="productAdd" method="post">
+		<form action="{{ route('admin.update_item') }}" name="itemAdd" enctype="multipart/form-data" id="itemAdd" method="post">
 		<div class="row">		    
-			<div class="col-lg-8">			
+			<div class="col-lg-12">			
 				<div class="kt-portlet kt-portlet--height-fluid">
 				    <div class="kt-portlet__head">
 						<div class="kt-portlet__head-label">
 							<h3 class="kt-portlet__head-title">
-								Create Product
+								Edit Item
 							</h3>
 						</div>
 						<div class="kt-portlet__head-toolbar">
 							<div class="kt-portlet__head-wrapper">
 								<div class="kt-portlet__head-actions" style="margin-left:20px">
-									<a href="{{ route('admin.products') }}" class="btn btn-brand btn-elevate btn-icon-sm">
+									<a href="{{ route('admin.items') }}" class="btn btn-brand btn-elevate btn-icon-sm">
 										<i class="la la-arrow-left"></i>
-										Back To Products
+										Back To Items
 									</a>
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="kt-portlet__body">			    
-						@csrf														
+						@csrf
+						<input type="hidden" name="id" value="{{$products['id']}}"/>
 						<div class="form-group">
 							<label>Name</label>										
-							<input type="text" name="name" class="form-control" placeholder="Enter Name">
+							<input type="text" name="name" class="form-control" placeholder="Enter Name" value="{{$products['name']}}">
 						</div>										
 						<div class="form-group">
 							<label>Slug</label>										
-							<input type="text" name="slug" class="form-control" placeholder="Enter slug">
+							<input type="text" name="slug" class="form-control" placeholder="Enter slug" value="{{$products['slug']}}">
 						</div>														
 						<div class="form-group">
 							<label>Sku</label>										
-							<input type="text" name="sku" class="form-control" placeholder="Enter sku">
-						</div>										
-						<div class="form-group">
-							<label>Short Description</label>
-							<textarea rows="10" name="short_description" id="short_description" class="form-control" placeholder="Short Description"></textarea>
-						</div>														
+							<input type="text" name="sku" class="form-control" placeholder="Enter sku" value="{{$products['sku']}}">
+						</div>												
 						<div class="form-group">
 							<label>Description</label>										
-							<textarea rows="15" name="description" class="form-control" id="description" placeholder="Description"></textarea>
-						</div>										
-						<div class="form-group">
-							<label>Stock</label>										
-							<input type="text" name="stock" class="form-control" placeholder="eg. 5">
-						</div>										
-						<div class="form-group">
-							<label>Price <small>(add price without comma)</small></label>										
-							<input type="text" name="price" class="form-control" placeholder="eg. 100">
-						</div>										
-						<div class="form-group">
-							<label>Previous Price <small>(add price without comma)</small></label>										
-							<input type="text" name="previous_price" class="form-control" placeholder="eg. 120">
-						</div>										
-						<div class="kt-checkbox-list form-group">
-							<label class="kt-checkbox kt-checkbox--success" for="size-check">
-								<input type="checkbox" id="size-check" value="1" name="size_check"> <b>{{ __('Add Product Sizes') }}</b>
-								<span></span>
-							</label>												
-						</div>				
-						<div class="showbox form-group" id="size-display">
-							<div class="product-size-details" id="size-section">
-								<div class="size-area">
-									<span class="remove size-remove"><i class="fas fa-times"></i></span>
-									<div class="row">
-										<div class="col-md-4 col-sm-6">
-											<label>
-												{{ __('Size Name') }} :
-												<span>
-													{{ __('(eg. S,M,L)') }}
-												</span>
-											</label>
-											<input type="text" name="size[]" class="form-control"
-												placeholder="{{ __('Size Name') }}">
-										</div>
-										<div class="col-md-4 col-sm-6">
-											<label>
-												{{ __('Size Qty') }} :
-												<span>
-													{{ __('(Quantity of size)') }}
-												</span>
-											</label>
-											<input type="number" name="size_qty[]" class="form-control"
-												placeholder="{{ __('Size Qty') }}" value="1" min="1">
-										</div>
-										<div class="col-md-4 col-sm-6">
-											<label>
-												{{ __('Size Price') }} :
-												<span>
-													{{ __('(Price of size)') }}
-												</span>
-											</label>
-											<input type="number" name="size_price[]" class="form-control"
-												placeholder="{{ __('Size Price') }}" value="0" min="0">
-										</div>
-									</div>
-								</div>
-							</div>
-							<a href="javascript:;" id="size-btn" class="btn btn-brand btn-elevate btn-icon-sm"><i
-									class="la la-plus"></i>{{ __('Add More Size') }} </a>
-						</div>										
-						<div class="form-group">
-							<label>Color</label>										
-							<input type="text" name="color" class="form-control" placeholder="eg. Red">
-						</div>										
-						<div class="form-group">
-							<label>Weight</label>										
-							<input type="text" name="weight" class="form-control" placeholder="eg. 1kg">
+							<textarea rows="15" name="description" class="form-control" id="description" placeholder="Description">{{$products['description']}}</textarea>
 						</div>								
 						<div class="form-group">
-							<label>Tags</label>										
-							<input type="text" name="tags" class="form-control" id="tags-input" value="" data-role="tagsinput" placeholder="Add tags" />
-						</div>										
-						<div class="form-group">
-							<label>Is Featured</label>										
-							<select name="featured" class="form-control">
-								<option value=""></option>
-								<option value="1">Yes</option>
-							</select>
-						</div>
+							<label>Price <small>(add price without comma)</small></label>										
+							<input type="text" name="price" class="form-control" placeholder="eg. 100" value="{{$products['price']}}">
+						</div>	
 						<div class="form-group">
 							<label>Select Categories</label>
 							@foreach($catgory_tree as $tree)
@@ -144,7 +67,7 @@
 								<li>
 								<div class="kt-checkbox-list">
 									<label class="kt-checkbox kt-checkbox--success">
-										<input type="checkbox" name="category_ids[]" value="{{ $tree['id'] }}"> {{ $tree['name'] }}
+										<input type="checkbox" name="category_ids[]" value="{{ $tree['id'] }}" @if(in_array($tree['id'], explode(",", $products['category_ids']))) checked @endif> {{ $tree['name'] }}
 										<span></span>
 									</label>												
 								</div>
@@ -154,7 +77,7 @@
 									<li>
 									<div class="kt-checkbox-list">
 										<label class="kt-checkbox kt-checkbox--success">
-											<input type="checkbox" name="category_ids[]" value="{{ $sub['id'] }}"> {{ $sub['name'] }}
+											<input type="checkbox" name="category_ids[]" value="{{ $sub['id'] }}" @if(in_array($sub['id'], explode(",", $products['category_ids']))) checked @endif > {{ $sub['name'] }}
 											<span></span>
 										</label>												
 									</div>
@@ -164,7 +87,7 @@
 										<li>
 										<div class="kt-checkbox-list">
 											<label class="kt-checkbox kt-checkbox--success">
-												<input type="checkbox" name="category_ids[]" value="{{ $sub_child['id'] }}"> {{ $sub_child['name'] }}
+												<input type="checkbox" name="category_ids[]" value="{{ $sub_child['id'] }}" @if(in_array($sub_child['id'], explode(",", $products['category_ids']))) checked @endif > {{ $sub_child['name'] }}
 												<span></span>
 											</label>												
 										</div>
@@ -179,76 +102,23 @@
 								</li>
 							</ul>
 							@endforeach											
-						</div>										
-						<div class="form-group">											
-							 <div class="kt-checkbox-list">
-								<label class="kt-checkbox">
-									<input type="checkbox" name="is_meta" id="is_meta" value="1"> Use Seo Information
-									<span></span>
-								</label>												
-							</div>
-						</div>
-						<div id="meta-div" style="display:none;">								
-							<div class="form-group">
-								<label>Title</label>
-								<input type="text" name="meta_title" class="form-control">
-							</div>										
-							<div class="form-group">
-								<label>Description</label>
-								<textarea rows="8" name="meta_description" id="meta_description" class="form-control" placeholder="Short Description"></textarea>
-							</div>
-						</div>										
+						</div>								
 						<div class="form-group">
 							<label>Status</label>
 							<select name="status" class="form-control">
-								<option value="1">Enable</option>
-								<option value="0">Disable</option>
+								<option value="1" @if($products['status'] == 1) selected @endif>Enable</option>
+								<option value="0" @if($products['status'] == 0) selected @endif>Disable</option>
 							</select>
 						</div>
 						<input type="hidden" name="photos" id="photos_value"/>
 						<div class="form-group">
-							<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Add Product"><i class="la la-plus"></i> Add Product</button>
+							<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Add Product"><i class="la la-pencil"></i> Update Item</button>
 						</div>
 						<div class="form-group">
 							<div id="message"></div>
 						</div>
 					</div>
 				</div>
-			</div>
-			<div class="col-lg-4">
-				<div id="image" class="ui-sortable kt-uppy">
-					<div class="photo-item photo-add dropzone dropzone-default dropzone-brand dz-clickable">
-						<img src="{{asset('/public/assets/admin/product/images/440x440.png')}}" style="max-width: 100%;">
-						<span class="fileinput-button">
-							<div class="photo-add-inner">
-								<i class="flaticon-upload-1"></i>
-								<span class="btn-block mb-2">Choose File(JPG, JPEG, PNG, SVG)</span>
-								<small class="text-muted">start to upload</small>
-							</div>
-							<input id="image-upload" type="file" name="photo" multiple="">
-						</span>
-					</div>										
-				</div>								    
-				<div class="gallery">
-					<h4 class="kt-portlet__head-title mt-4">Add Gallery</h4>
-				</div>										
-				<div class="progress-wrapper">
-					<div class="progress progress-photo rounded-0 hide">
-						<div class="progress-bar" style="width: 1%;"></div>
-					</div>
-				</div>
-				<div id="photo" class="ui-sortable mt-2">
-					<div class="photo-item photo-add ">
-						<img src="{{asset('/public/assets/admin/product/images/440x440.png')}}">
-						<span class="fileinput-button">
-							<div class="photo-add-inner">
-								<span class="btn-block mb-2">Choose File</span>
-								<small class="text-muted">start to upload</small>
-							</div>
-							<input id="photo-upload" type="file" name="image" multiple="">
-						</span>
-					</div>
-				</div>				
 			</div>
 		</div>		
 	</form>
@@ -276,93 +146,55 @@
 <script>
 var jqXHR = new Array();
 var $i = 0;
-$btnSubmit = $("form[name='productAdd'] button[type='submit']");
+$btnSubmit = $("form[name='itemAdd'] button[type='submit']");
 var $spinner = '<div class="spinner"><div class="dot1"></div><div class="dot2"></div><div class="dot3"></div></div>';
-$("form[name='productAdd'] #photo-upload").fileupload({
-	dataType: 'json',
-	url: "{{ route('admin.galleryupload')}}",
-	sequentialUploads: true,
-	add: function (e, data) {
-		if( photoMax() ){
-			$.each(data.files, function (index, file) {
-				var error = 0;
-				$i++;
-				if (!(/\.(gif|jpe?g|png)$/i).test(file.name)) {
-					alert('File type not allowed.');
-					error = 1;
-				}
-				if(file.size > 20971520) {
-					alert('File too large. Limit 20MB');
-					error = 1;
-				}
-				if(error == 0) {
-					$btnSubmit.prop("disabled", true).html($spinner);
-					$(".progress-photo").removeClass("hide");
-					data.context = $('<div class="photo-item photo-image">').insertBefore('#photo .photo-add').html(
-						'<div class="photo-item-select">' +
-						'<img src="{{asset('/public/assets/admin/product/images/440x440.png')}}" class="bg">' +
-						$spinner +
-						'<a href="#abort" class="abort" data-id="' + $i + '"><i class="fa fa-times"></i></a>' +
-						'</div>'
-					);
-					jqXHR[$i] = data;
-					data.submit();
-				}
-			});
-			photoMax();
 
-		}
-	},
-	progressall: function (e, data) {
-		var progress = parseInt(data.loaded / data.total * 100, 10);
-
-		if(progress > 0 && progress < 100) {
-			$(".progress-photo").removeClass("hide");
-		} else {
-			setTimeout(function(){
-				$(".progress-photo").addClass("hide");
-				$('.progress-photo .progress-bar').css('width', '1%');
-			}, 4000);
-		}
-		$('.progress-photo .progress-bar').css('width', progress + '%');
-	},
-	done: function (e, data) {
-		if(data.result) {
-			$(data.context).html( photoTile(data.result.url, data.result.filename) );
-		}
-		photoChange();
-	}
-});
 
 function photoMax() {
-	var $v_items = $("form[name='productAdd'] #photo .photo-image").length;
+
+	var $v_items = $("form[name='itemAdd'] #photo .photo-image").length;
+
 	$max_photos = 20;
-	$("form[name='productAdd'] .photo-numbers").text(($v_items > $max_photos ? $max_photos : $v_items) + " of " + $max_photos);
-	$("form[name='productAdd'] #photo .photo-item").each(function( index ){
+
+
+	$("form[name='itemAdd'] .photo-numbers").text(($v_items > $max_photos ? $max_photos : $v_items) + " of " + $max_photos);
+
+	$("form[name='itemAdd'] #photo .photo-item").each(function( index ){
+
 		if(index > ($max_photos-1)) {
 			$(this).addClass("hide");
 		} else {
 			$(this).removeClass("hide");
 		}
+
 	});
+
 	if( $v_items  < $max_photos ){
 		return true;
 	} else {
 		return false;
 	}
+
 }
 
 function photoChange() {
+
 	coverPopover();
+
 }
 
 
 function coverPopover() {
+
 	if(!$("#photo").attr("data-hidetips")) {
+
 		if ($("#photo .photo-item:first-of-type .primary").length > 0) {
 
+
 		}
+
 	}
+
 }
 
 $("#photo").on("click", ".cover-popover .cover-popover-close", function(e) {
@@ -374,9 +206,11 @@ $("#photo").on("click", ".cover-popover .cover-popover-close", function(e) {
 });
 
 function photoTile(pThumbail, pId) {
+
 	if( $("#photo .spinner").length <= 1 ){
 		$btnSubmit.prop("disabled", false).text($btnSubmit.attr('data-label'));
 	}
+
 	return(
 		'<div class="photo-item-select">' +
 		'<img src="{{asset('/public/assets/admin/product/images/440x440.png')}}">' +
@@ -390,10 +224,12 @@ function photoTile(pThumbail, pId) {
 		'<input type="hidden" name="image[]" class="photo_of_list" value="' + pId + '">' +
 		'</div>'
 	);
+
 }
 	
 // Sort
-$("form[name='productAdd'] #photo").sortable({
+
+$("form[name='itemAdd'] #photo").sortable({
 	items: ".photo-image",
 	tolerance: "pointer",
 	cursor: "move",
@@ -404,148 +240,40 @@ $("form[name='productAdd'] #photo").sortable({
 	containment: "parent",
 	start: function(e, ui){
 		$("#photo .cover-popover").remove();
-		$("form[name='productAdd'] #photo").children("div").height(ui.item.height());
+		$("form[name='itemAdd'] #photo").children("div").height(ui.item.height());
 	},
 	stop: function(e, ui){
-		$("form[name='productAdd'] #photo").children("div").height('auto');
+		$("form[name='itemAdd'] #photo").children("div").height('auto');
 		photoChange();
 	}
 }).disableSelection();
 
-$("form[name='productAdd'] #photo").on('dragstart', "img", function(e) {
+$("form[name='itemAdd'] #photo").on('dragstart', "img", function(e) {
 	e.preventDefault();
 });
 
-$("form[name='productAdd'] #photo").on("click touchend", ".remove", function(e){
+$("form[name='itemAdd'] #photo").on("click touchend", ".remove", function(e){
 	e.preventDefault();
 	var rmvFile = $(this).attr("data-photo");
-	var token = $("input[name=_token]").val();
-	$.ajax({
-		url: "{{ route('admin.deletefile')}}",
-		type: "POST",
-		data: { "fileList" : rmvFile, "_token" : token},
-		function(data,status){
-			
-		}		
-	});
 	$(this).closest(".photo-item").remove();	
 	photoMax();
 	photoChange();
 });
 
-$("form[name='productAdd'] #image-upload").fileupload({
-	dataType: 'json',
-	url: "{{ route('admin.photoupload')}}",
-	sequentialUploads: true,
-	add: function (e, data) {
-		if( photoMax2() ){
-			$.each(data.files, function (index, file) {
-				var error = 0;
-				$i++;
-				if (!(/\.(gif|jpe?g|png)$/i).test(file.name)) {
-					alert('File type not allowed.');
-					error = 1;
-				}
-				if(file.size > 20971520) {
-					alert('File too large. Limit 20MB');
-					error = 1;
-				}
-				if(error == 0) {
-					$btnSubmit.prop("disabled", true).html($spinner);
-					data.context = $('<div class="photo-item photo-image tery ma ka ">').insertBefore('#image .photo-add').html(
-						'<div class="photo-item-select">' +
-						'<img src="{{asset('/public/assets/admin/product/images/440x440.png')}}" class="bg">' +
-						$spinner +
-						'<a href="#abort" class="abort" data-id="' + $i + '"><i class="fa fa-times"></i></a>' +
-						'</div>'
-					);
-					jqXHR[$i] = data;
-					data.submit();
-				}
-			});
-			photoMax2();
-		}
-	},
-	done: function (e, data) {
-		if(data.result) {
-			$(data.context).html( photoTile2(data.result.url, data.result.filename) );
-		}
-		photoChange2();
-	}
-});
-
-function photoMax2() {
-	var $v_items = $("form[name='productAdd'] #image .photo-image").length;
-	$photoMax2 = 1;
-	$("form[name='productAdd'] .photo-numbers").text(($v_items > $photoMax2 ? $photoMax2 : $v_items) + " of " + $photoMax2);
-	$("form[name='productAdd'] #image .photo-item").each(function( index ){
-		if(index > ($photoMax2-1)) {
-			$(this).addClass("hide");
-		} else {
-			$(this).removeClass("hide");
-		}
-	});
-
-	if( $v_items  < $photoMax2 ){
-		return true;
-	} else {
-		return false;
-	}
-}
-
-$("form[name='productAdd'] #image").on("click touchend", ".remove", function(e){
-	e.preventDefault();
-	var rmvFile = $(this).attr("data-photo");
-	var token = $("input[name=_token]").val();
-	$.ajax({
-		url: "{{ route('admin.deletefile')}}",
-		type: "POST",
-		data: { "fileList" : rmvFile,  "_token" : token},
-		function(data,status){
-			
-		}		
-	});
-	$(this).closest(".photo-item").remove();	
-	photoMax2();
-	photoChange2();
-});
-
-function photoChange2() {
-	coverPopover2();
-}
-function coverPopover2() {
-	if(!$("#image").attr("data-hidetips")) {
-		if ($("#photo .photo-item:first-of-type .primary").length > 0) {
-
-		}
-	}
-}
-function photoTile2(pThumbail, pId) {
-	if( $("#image .spinner").length <= 1 ){
-		$btnSubmit.prop("disabled", false).text($btnSubmit.attr('data-label'));
-	}
-	return(
-		'<div class="photo-item-select">' +
-		'<img src="{{asset('/public/assets/admin/product/images/440x440.png')}}">' +
-		'<div class="image-wrapper"><img src="' + pThumbail + '" class="image"></div>' +
-		'<a href="#remove" class="remove" title="Remove" data-photo="' + pId + '"><i class="fa fa-times"></i></a>' +
-		'<input type="hidden" name="photo" class="photo_of_list" value="' + pId + '">' +
-		'</div>'
-	);
-}
 </script>
+
 <script>
-jQuery("#is_meta").on("change", function(){
-	jQuery("#meta-div").toggle();
-});
-jQuery("#productAdd").submit(function(e) {	
+jQuery("#itemAdd").submit(function(e) {
+	
 	var photoValues = $('#photo_val').text();
 	$('#photos_value').val(photoValues);
-	e.preventDefault();	
+	e.preventDefault();
+	
 	jQuery("input,select,textarea").css('border','1px solid black');
 	jQuery('.mes').remove();
     var url = jQuery(this).attr('action');
 	var formData = new FormData(jQuery(this)[0]);
+
     jQuery.ajax({
            type: "POST",
            url: url,
@@ -554,8 +282,10 @@ jQuery("#productAdd").submit(function(e) {
            dataType:'json',
            contentType: false,
            success: function(data)
-           {           
-            if(data.status== false){				
+           {
+           
+            if(data.status== false){
+				
 				jQuery('#message').html(data.message);    
 				var a= data['errors'];     
                jQuery.each(data.errors, function(key, value){           
@@ -566,7 +296,8 @@ jQuery("#productAdd").submit(function(e) {
 					}
                });
             }
-			if(data.status==true){       
+			if(data.status==true){
+       
 				jQuery("input[type=text],select,textarea").css('border','1px solid #1abb9c').delay( 2000 ).css('border','1px solid #e2e2e4');
 				jQuery("input[type=text],select,textarea").val('');				
 				jQuery('#message').html(data.message);  
@@ -583,90 +314,6 @@ jQuery("#productAdd").submit(function(e) {
            }
          });
 });
-
-// Size Section
-
-$("#size-check").change(function() {
-    if(this.checked) {
-        $("#size-display").show();
-    }
-    else
-    {
-        $("#size-display").hide();
-    }
-});
-
-$("#size-btn").on('click', function(){
-
-    $("#size-section").append(''+
-                            '<div class="size-area">'+
-                                '<span class="remove size-remove"><i class="fas fa-times"></i></span>'+
-                                    '<div  class="row">'+
-                                        '<div class="col-md-4 col-sm-6">'+
-                                            '<label>'+
-                                            'Size Name :'+
-                                                '<span>(eg. S,M,L)</span>'+
-                                            '</label>'+
-                                            '<input type="text" name="size[]" class="form-control" placeholder="Size Name">'+
-                                        '</div>'+
-                                        '<div class="col-md-4 col-sm-6">'+
-                                            '<label>'+
-                                            'Size Qty :'+
-                                            '<span>(Quantity of this size)</span>'+
-                                            '</label>'+
-                                            '<input type="number" name="size_qty[]" class="form-control" placeholder="Size Qty" value="1" min="1">'+
-                                        '</div>'+
-                                        '<div class="col-md-4 col-sm-6">'+
-                                            '<label>'+
-                                            'Size Price :'+
-                                            '<span>(Price of size)</span>'+
-                                            '</label>'+
-                                            '<input type="number" name="size_price[]" class="form-control" placeholder="Size Price" value="0" min="0">'+
-                                        '</div>'+
-                                    '</div>'+
-                                '</div>'
-                            +'');
-
-});
-
-$(document).on('click','.size-remove', function(){
-
-    $(this.parentNode).remove();
-    if (isEmpty($('#size-section'))) {
-
-    $("#size-section").append(''+
-                            '<div class="size-area">'+
-                                '<span class="remove size-remove"><i class="fas fa-times"></i></span>'+
-                                    '<div  class="row">'+
-                                        '<div class="col-md-4 col-sm-6">'+
-                                            '<label>'+
-                                            'Size Name :'+
-                                                '<span>(eg. S,M,L)</span>'+
-                                            '</label>'+
-                                            '<input type="text" name="size[]" class="form-control" placeholder="Size Name">'+
-                                        '</div>'+
-                                        '<div class="col-md-4 col-sm-6">'+
-                                            '<label>'+
-                                            'Size Qty :'+
-                                            '<span>(Quantity of this size)</span>'+
-                                            '</label>'+
-                                            '<input type="number" name="size_qty[]" class="form-control" placeholder="Size Qty" value="1" min="1">'+
-                                        '</div>'+
-                                        '<div class="col-md-4 col-sm-6">'+
-                                            '<label>'+
-                                            'Size Price :'+
-                                            '<span>(Price of size)</span>'+
-                                            '</label>'+
-                                            '<input type="number" name="size_price[]" class="form-control" placeholder="Size Price" value="0" min="0">'+
-                                        '</div>'+
-                                    '</div>'+
-                                '</div>'
-                            +'');
-    }
-
-});
-
-// Size Section Ends
 $(function(){
 	var $ckfield = CKEDITOR.replace( 'description' );
 	$ckfield.on('change', function() {
@@ -678,9 +325,9 @@ $(function(){
 	});	
 });
 </script>
-<script src="{{ asset('public/assets/admin/js/bootstrap-tagsinput.js')}}" type="text/javascript"/>
+<script src="{{ asset('public/assets/admin/js/bootstrap-tagsinput.js')}}" type="text/javascript">
 <script>
-$(document).ready(function(){        
+$(document).ready(function(){
   var tagInputEle = $('#tags-input');
   tagInputEle.tagsinput();
 });

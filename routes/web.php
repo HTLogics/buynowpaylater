@@ -75,10 +75,19 @@ Route::prefix('admin')->group(function () {
 	Route::post('/update_customer', [CustomerController::class, 'updateCustomer'])->name('admin.update_customer');	
 	Route::get('/delete_customer/{id}', [CustomerController::class, 'deleteCustomer'])->name('admin.delete_customer');	
 	Route::get('/view_customer/{id}', [CustomerController::class, 'viewCustomer'])->name('admin.view_customer');	
+	Route::get('/search_customer', [CustomerController::class, 'searchCustomer'])->name('admin.search_customer');
 	
 	/*------------ Customer Items ------------*/
 	Route::get('/items', [ItemsController::class, 'index'])->name('admin.items');
-	Route::get('/add-item', [AddItemController::class, 'index'])->name('admin.add_item');
+	Route::get('/items_data', [ItemsController::class, 'itemsData'])->name('admin.items_data');
+	Route::get('/add-item', [ItemsController::class, 'addItem'])->name('admin.add_item');
+	Route::post('/save_item', [ItemsController::class, 'saveItem'])->name('admin.save_item');	
+	Route::get('/edit_item/{id}', [ItemsController::class, 'editItem'])->name('admin.edit_item');
+	Route::post('/update_item', [ItemsController::class, 'updateItem'])->name('admin.update_item');
+	Route::post('/delete_file', [ItemsController::class, 'deleteFile'])->name('admin.deletefile');
+	Route::get('/delete_item/{id}', [ItemsController::class, 'deleteItem'])->name('admin.delete_item');
+	Route::get('/search_product', [ItemsController::class, 'searchItem'])->name('admin.search_item');	
+	Route::get('/get_item/{id}', [ItemsController::class, 'getItem'])->name('admin.get_item');	
 	
 	/*------------ Cetegory ------------*/
 	Route::get('/category', [CategoryController::class, 'index'])->name('admin.category');
