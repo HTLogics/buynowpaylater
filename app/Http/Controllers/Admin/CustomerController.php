@@ -172,8 +172,8 @@ class CustomerController extends Controller
 	public function searchCustomer(){
 		$data = array();
 		if (request('q')) {
-			$data['total_count'] = Customer::select('id', 'firstname as text')->where('firstname', 'Like', '%' . request('q') . '%')->count();
-			$data['results'] = Customer::select('id', 'firstname as text')->where('firstname', 'Like', '%' . request('q') . '%')->get();
+			$data['total_count'] = Customer::select('id', DB::raw("CONCAT(customers.firstname,' ',customers.lastname) as text"))->where('firstname', 'Like', '%' . request('q') . '%')->count();
+			$data['results'] = Customer::select('id', DB::raw("CONCAT(customers.firstname,' ',customers.lastname) as text"))->where('firstname', 'Like', '%' . request('q') . '%')->get();
 		}	
 		return Response::json($data);
 	}
