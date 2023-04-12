@@ -17,18 +17,6 @@ button#add-items-to-bill, .btn.proceed-to-checkout {
 span.select2-selection.select2-selection--single.error {
     border: 1px solid red;
 }
-a.remove-item {
-    color: #fff;
-    margin-right: 12px;
-    float: right;
-    background: #ff1f1f;
-    border-radius: 12px;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 20px;
-}
 </style>
 <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
 	<!-- begin:: Content -->
@@ -39,46 +27,11 @@ a.remove-item {
 		<div class="kt-portlet kt-portlet--height-fluid">
 		    <div class="kt-portlet__head">
 				<div class="kt-portlet__head-label">
-					<h4>Add Items</h4>	
+					<h4>Cart</h4>	
 				</div>
 			</div>
 			<div class="kt-portlet__body">
 			    <form action="{{ route('admin.save_cart') }}" name="generate_bill" enctype="multipart/form-data" id="generateBill" method="post">
-				<div class="panel panel-success col-h">
-					<div class="panel panel-success col-h">							
-							<div class="panel-body">
-								    <div class="row">
-										@csrf
-										<div class="col-sm-12">										
-											<div class="form-group">
-												<label>Choose Customer</label>										
-												<select name="customer" class="form-control form-select" id="customer">
-													<option name=""></option>
-												</select>
-											</div>
-										</div>
-										<div class="col-sm-7">										
-											<div class="form-group">
-												<label>Choose Items</label>										
-												<select class="form-control form-select" id="item">
-													<option name="">Choose Item</option>													
-												</select>
-											</div>
-										</div>
-										<div class="col-sm-2 mt-4">
-											<div class="form-group form-btn">											
-												<input type="number" id= "qty" class="form-control select-item-qty" min="1" value="1"/>
-											</div>										
-										</div>
-										<div class="col-sm-3 mt-4">
-											<div class="form-group form-btn">											
-												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Save" id="add-items-to-bill"><i class="la la-plus"></i> Add Item</button>
-											</div>										
-										</div>
-									</div>
-							</div>							
-					</div>
-				</div>
 				<div class="panel panel-success col-h">
 					<div class="panel panel-success col-h">							
 							<div class="panel-body">
@@ -168,17 +121,16 @@ $('#add-items-to-bill').on('click', function(e){
 				}
 			});
 
-			$('#product-items tr:last').after('<tr class="product-row" id="row'+data.product.id+'" data-id="'+data.product.id+'"><td><input type="hidden" name="id[]" value="'+data.product.id+'">'+data.product.name+'</td><td>'+data.product.price+'</td><td class="qty"><input type="number" min=1 max=100 name="qty[]" value="'+item_qty+'"></td><td>'+parseInt(item_qty)*parseFloat(data.product.price)+'<a href="javascript:void(0)" class="round remove-item" data-rowid="#row'+data.product.id+'"><i class="la la-times"></i></a></td></tr>');
+			$('#product-items tr:last').after('<tr class="product-row" data-id="'+data.product.id+'"><td><input type="hidden" name="id[]" value="'+data.product.id+'">'+data.product.name+'</td><td>'+data.product.price+'</td><td class="qty">'+item_qty+'<input type="hidden" name="qty[]" value="'+item_qty+'"></td><td>'+parseInt(item_qty)*parseFloat(data.product.price)+'</td></tr>');
+				
+						
+
+				
 		    
 		}
 	});
 });
 
-/*remove item*/
-$('body').on('click', '.remove-item', function(){
-	var rowId = $(this).data('rowid');
-	$(rowId).remove();
-});
 
 jQuery("#generateBill").submit(function(e) {
 	
@@ -235,8 +187,6 @@ jQuery("#generateBill").submit(function(e) {
            }
          });
 });
-
-
 </script>
 
 @endsection

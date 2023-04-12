@@ -21,6 +21,9 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\LoginFrontController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 
+
+
+
 //admin
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -98,6 +101,8 @@ Route::prefix('admin')->group(function () {
 	
     /*------------ Generate Bill ------------*/
     Route::get('/generate-bill', [GenerateBillController::class, 'index'])->name('admin.Generate_bill');
+    Route::post('/save_cart', [GenerateBillController::class, 'saveCart'])->name('admin.save_cart');
+    Route::get('/cart/{id}', [GenerateBillController::class, 'getCart'])->name('admin.cart');
 	
 	/*------------ Payment ------------*/
     Route::get('/payment', [PaymentController::class, 'index'])->name('admin.payment');
