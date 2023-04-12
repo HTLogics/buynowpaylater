@@ -161,7 +161,7 @@ $('#add-items-to-bill').on('click', function(e){
 			$("tr.product-row").each( function () {
 				var pid = $(this).data("id")
 				if(pid == item_id){
-					var getOldqty  = $(this).find("td:eq(2)").text();
+					var getOldqty  = $(this).find("td:eq(2) input").val();
 					item_qty = parseInt(item_qty)+parseInt(getOldqty);
 					$(this).remove();
 					return false;
