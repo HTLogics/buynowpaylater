@@ -89,7 +89,7 @@ span.select2-selection.select2-selection--single.error {
 										</div>
 									</div>
 								</div>
-								@php die(); endphp
+								@php die(); @endphp
 								<table class="table table-striped- table-bordered table-hover table-checkable dtr-inline" id="product-items">
 									<thead>
 										<tr class="kt-card-heading">
