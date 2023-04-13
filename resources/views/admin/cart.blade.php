@@ -40,7 +40,7 @@ span.select2-selection.select2-selection--single.error {
 									<div class="col-lg-12">
 										<div class="kt-card">
 											<h3 class="kt-card-heading">Customer Details</h3>
-											<table class="table table-borderless" style="max-width:600px">
+											<!--<table class="table table-borderless" style="max-width:600px">
 												<tbody>
 													<tr>
 														<th width="45%">Name</th>
@@ -85,12 +85,11 @@ span.select2-selection.select2-selection--single.error {
 														</td>
 													</tr>
 												</tbody>
-											</table>
+											</table>-->
 										</div>
 									</div>
 								</div>
-								@php die(); @endphp
-								<table class="table table-striped- table-bordered table-hover table-checkable dtr-inline" id="product-items">
+								<!--<table class="table table-striped- table-bordered table-hover table-checkable dtr-inline" id="product-items">
 									<thead>
 										<tr class="kt-card-heading">
 											<th>Item Name</th>
@@ -139,7 +138,7 @@ span.select2-selection.select2-selection--single.error {
                                         <button type="submit" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Add Product"><i class="la la-pencil"></i> Update Cart</button>									
 										<button type="button" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Add Product"><i class="la la-credit-card"></i> Place Order</button>
 									</div>										
-								</div>
+								</div>-->
 								<div class="loader"></div>									
 								<div class="form-group">
 									<div id="message"></div>
