@@ -1,35 +1,6 @@
 @extends('layouts.admin')
 
 @section('content')
-<style>
-button#add-items-to-bill, .btn.proceed-to-checkout {
-    height: 56px;
-    margin-top: -3px;
-}
-.select-item-qty {
-    height: 58px;
-    margin-top: -4px;
-}
-.btn.proceed-to-checkout{
-	line-height: 34px;
-    padding: 10px 20px;
-}
-span.select2-selection.select2-selection--single.error {
-    border: 1px solid red;
-}
-a.remove-item {
-    color: #fff;
-    margin-right: 12px;
-    float: right;
-    background: #ff1f1f;
-    border-radius: 12px;
-    width: 20px;
-    height: 20px;
-    text-align: center;
-    font-size: 12px;
-    line-height: 20px;
-}
-</style>
 <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
 	<!-- begin:: Content -->
 	<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -161,7 +132,7 @@ $('#add-items-to-bill').on('click', function(e){
 			$("tr.product-row").each( function () {
 				var pid = $(this).data("id")
 				if(pid == item_id){
-					var getOldqty  = $(this).find("td:eq(2)").text();
+					var getOldqty  = $(this).find("td:eq(2) input").val();
 					item_qty = parseInt(item_qty)+parseInt(getOldqty);
 					$(this).remove();
 					return false;

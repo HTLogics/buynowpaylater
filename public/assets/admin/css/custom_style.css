@@ -504,7 +504,34 @@ a.remove-banner {
 .form-btn button {
     width: 100%;
 }
-
+button#add-items-to-bill, .btn.proceed-to-checkout {
+    height: 56px;
+    margin-top: -3px;
+}
+.select-item-qty {
+    height: 58px;
+    margin-top: -4px;
+}
+.btn.proceed-to-checkout{
+	line-height: 34px;
+    padding: 10px 20px;
+}
+span.select2-selection.select2-selection--single.error {
+    border: 1px solid red;
+}
+a.remove-item {
+    color: #fff;
+    margin-right: 12px;
+    float: right;
+    background: #ff1f1f;
+    border-radius: 12px;
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    font-size: 12px;
+    line-height: 20px;
+}
+.mt-30{margin-top:30px}
 @media (min-width: 320px) and (max-width: 767px) {
 	
 .tab-Details{ flex: 0 0 calc(100% - 0.25rem) !important; width: calc(100% - 0.25rem) !important;} 

@@ -13,4 +13,15 @@ class Customer extends Model
     protected $fillable = [
         'firstname', 'lastname', 'email', 'phone', 'address', 'country', 'state', 'created_at', 'updated_at', 'zip', 'status'
     ];
+	
+	/**
+    * Get the user's full concatenated name.
+    * -- Must postfix the word 'Attribute' to the function name
+    *
+    * @return string
+    */
+    public function getFullNameAttribute()
+    {
+        return "{$this->firstname} {$this->lastname}";
+    }
 }

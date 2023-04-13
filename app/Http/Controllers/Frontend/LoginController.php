@@ -10,12 +10,13 @@ class LoginFrontController extends Controller
 
     public function __construct()
     {
-		$this->middleware('guest:admin', ['except' => ['logout']]);
+		$this->middleware('guest:admin');
     }
 
     public function index()
     {	
-	    $data = array();				
+	    $data = array();
+		
         return view('frontend.login', $data);
     }
 

@@ -103,7 +103,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/generate-bill', [GenerateBillController::class, 'index'])->name('admin.Generate_bill');
     Route::post('/save_cart', [GenerateBillController::class, 'saveCart'])->name('admin.save_cart');
     Route::get('/cart/{id}', [GenerateBillController::class, 'getCart'])->name('admin.cart');
-	
+    Route::get('/remove_cart_item/{id}/{cartid}', [GenerateBillController::class, 'removeCartItem'])->name('admin.remove_cart_item');
+	Route::post('/update_cart/{id}', [GenerateBillController::class, 'updateCart'])->name('admin.update_cart');
 	/*------------ Payment ------------*/
     Route::get('/payment', [PaymentController::class, 'index'])->name('admin.payment');
 	

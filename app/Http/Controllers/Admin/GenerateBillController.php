@@ -67,7 +67,7 @@ class GenerateBillController extends Controller
 			}			
 			if($cart_item){
 				return response()->json(array(
-					'redirect' => route('admin.customers'),
+					'redirect' => route('admin.cart', $cart->id),
 					'status' => true,
 					'message' => "<div class='alert alert-success'>Cart saved. please wait...</div>",
 				));
@@ -80,14 +80,48 @@ class GenerateBillController extends Controller
         return response()->json(array('errors' => [ 0 => 'Cart not saved. Please try agian !' ]));
 	}
 	
+	public function updateCart(Request $request, $cartid){		
+
+		$cart_item_data = array();
+		$product_ids = $request->product_id;
+		$qty = $request->qty;
+		$i = 0;
+		foreach($product_ids as $product_id){
+			$cart_item_data = array(
+				'qty' => $qty[$i],		
+			);
+			$cart_item = Cart_item::where('cart_id', '=', $cartid)->where('product_id', '=', $product_id)->update($cart_item_data);
+			$i++;
+		}			
+		if($cart_item){
+			return response()->json(array(
+				'redirect' => route('admin.cart', $cartid),
+				'status' => true,
+				'message' => "<div class='alert alert-success'>Cart updated. please wait...</div>",
+			));
+		}			
+	
+		/*--- if unsuccessful, then show error ---*/
+        return response()->json(array('errors' => [ 0 => 'Cart not saved. Please try agian !' ]));
+	}
+	
 	public function getCart($id){
 		
 		$data = array();
 		$data['cart'] = Cart::where('id', '=', $id)->first();
+		if(!isset($data['cart'])){
+			abort(404);
+		}			
+		$data['cart_items'] = Cart_item::where('cart_id', '=', $id)->get();
 		$customer_id = $data['cart']->customer_id;
 		$data['customer'] = Customer::where('id', '=', $customer_id)->first();
 		return view('admin.cart', $data);
 		
+	}
+	
+	public function removeCartItem($product_id, $cart_id){		
+		$delete = Cart_item::where('product_id', '=', $product_id)->delete();
+        return redirect()->route('admin.cart', $cart_id)->with('success', "Item removed successfully.");
 	}
 	
 

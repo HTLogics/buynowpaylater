@@ -161,7 +161,7 @@ $('#add-items-to-bill').on('click', function(e){
 			$("tr.product-row").each( function () {
 				var pid = $(this).data("id")
 				if(pid == item_id){
-					var getOldqty  = $(this).find("td:eq(2) input").val();
+					var getOldqty  = $(this).find("td:eq(2)").text();
 					item_qty = parseInt(item_qty)+parseInt(getOldqty);
 					$(this).remove();
 					return false;
@@ -173,6 +173,69 @@ $('#add-items-to-bill').on('click', function(e){
 		}
 	});
 });
+
+/*remove item*/
+$('body').on('click', '.remove-item', function(){
+	var rowId = $(this).data('rowid');
+	$(rowId).remove();
+});
+
+jQuery("#generateBill").submit(function(e) {
+	
+	e.preventDefault();
+	jQuery('.loader').show();
+	jQuery('.loader').html('<br><div class="loader-text alert alert-warning">Please wait...</div>');
+	jQuery("input,select,textarea").css('border','1px solid black');
+	jQuery('.mes').remove();
+    var url = jQuery(this).attr('action');
+	var formData = new FormData(jQuery(this)[0]);
+
+    jQuery.ajax({
+           type: "POST",
+           url: url,
+           data:  formData, 
+           processData: false,
+           dataType:'json',
+           contentType: false,
+           success: function(data)
+           {
+            console.log(data); 
+            if(data.status== false){
+				console.log(data);
+				jQuery('#message').html(data.message);    
+				var a= data['errors'];     
+                jQuery.each(data.errors, function(key, value){           
+					jQuery("input[name='"+key+"'],textarea[name='"+key+"']").css('border','1px solid red'); 
+					jQuery("input[name='"+key+"'],textarea[name='"+key+"']").after("<small class='mes'>"+value+"</small>");
+					if(key == "customer"){ 
+						$("span.select2-selection.select2-selection--single.customer").css("border","1px solid red");
+						jQuery("span.select2-selection.select2-selection--single.customer").after("<small class='mes'>"+value+"</small>");
+					    
+					}
+					if(key == "id"){
+						alert('Select atleast one product to proceed.')
+					}	
+					
+               });
+            }
+			if(data.status==true){       
+				jQuery("input[type=text],select,textarea").css('border','1px solid #1abb9c').delay( 2000 ).css('border','1px solid #e2e2e4');
+				jQuery("input[type=text],select,textarea").val('');				
+				jQuery('#message').html(data.message);  
+				jQuery("#message").fadeIn(100);
+				jQuery("html, body").animate({
+					scrollTop: jQuery("#message").offset().top-100
+				}, 1000);
+				jQuery("#message").delay(3000);
+                setTimeout(function() {
+                   window.location.href = data.redirect;
+                }, 3000);		
+			}
+            jQuery('.loader').hide();			
+           }
+         });
+});
+
 
 </script>
 
