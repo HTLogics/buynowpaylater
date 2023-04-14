@@ -105,6 +105,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/cart/{id}', [GenerateBillController::class, 'getCart'])->name('admin.cart');
     Route::get('/remove_cart_item/{id}/{cartid}', [GenerateBillController::class, 'removeCartItem'])->name('admin.remove_cart_item');
 	Route::post('/update_cart/{id}', [GenerateBillController::class, 'updateCart'])->name('admin.update_cart');
+	Route::get('/checkout/{id}', [GenerateBillController::class, 'getCheckout'])->name('admin.checkout');
+	
 	/*------------ Payment ------------*/
     Route::get('/payment', [PaymentController::class, 'index'])->name('admin.payment');
 	

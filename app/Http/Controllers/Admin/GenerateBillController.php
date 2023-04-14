@@ -124,5 +124,19 @@ class GenerateBillController extends Controller
         return redirect()->route('admin.cart', $cart_id)->with('success', "Item removed successfully.");
 	}
 	
+	public function getCheckout($id){
+		
+		$data = array();
+		$data['cart'] = Cart::where('id', '=', $id)->first();
+		if(!isset($data['cart'])){
+			abort(404);
+		}			
+		$data['cart_items'] = Cart_item::where('cart_id', '=', $id)->get();
+		$customer_id = $data['cart']->customer_id;
+		$data['customer'] = Customer::where('id', '=', $customer_id)->first();
+		return view('admin.checkout', $data);
+		
+	}
+	
 
 }

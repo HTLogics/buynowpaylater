@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
 <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
 	<!-- begin:: Content -->
 	<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -55,7 +56,7 @@
 							<div class="panel-body">
 									<table class="table table-striped- table-bordered table-hover table-checkable dtr-inline" id="product-items">
 										<thead>
-											<tr class="kt-card-heading">
+											<tr class="kt-card-heading step-title">
 												<th>Item Name</th>
 												<th>Price</th>
 												<th>Quantity</th>

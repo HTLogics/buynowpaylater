@@ -1,6 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
+
 <div class="kt-content  kt-grid__item kt-grid__item--fluid kt-grid kt-grid--hor" id="kt_content">
 	<!-- begin:: Content -->
 	<div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid">
@@ -9,7 +10,7 @@
 		<div class="kt-portlet kt-portlet--height-fluid">
 		    <div class="kt-portlet__head">
 				<div class="kt-portlet__head-label">
-					<h4>Cart</h4>	
+					<h4>Checkout</h4>	
 				</div>
 			</div>
 			<div class="kt-portlet__body">
@@ -20,9 +21,9 @@
 					<div class="panel panel-success col-h">							
 							<div class="panel-body">
 								<div class="row">
-									<div class="col-lg-12">
+									<div class="col-lg-6">
 										<div class="kt-card">
-											<h3 class="kt-card-heading step-title">Customer Details</h3>
+											<h3 class="kt-card-heading"><i class="la la-home"></i> Billing Address</h3>
 											<table class="table table-borderless" style="max-width:600px">
 												<tbody>
 													<tr>
@@ -79,11 +80,21 @@
 											<input type="hidden" name="customer_zip" value="{{$customer->zip}}"/>
 										</div>
 									</div>
+									<div class="col-lg-6">
+										<div class="kt-card">
+											<h3 class="kt-card-heading"><i class="la la-credit-card"></i> Payment Method</h3>
+										</div>
+									</div>	
 								</div>
 								
 								<table class="table table-striped- table-bordered table-hover table-checkable dtr-inline" id="product-items">
 									<thead>
-										<tr class="kt-card-heading step-title">
+									    <tr>
+											<td colspan="4" class="kt-card-heading">
+												<i class="la la-check-circle"></i> Order Summary
+											</td>
+										</td>	
+										<tr>
 											<th>Item Name</th>
 											<th>Price</th>
 											<th>Quantity</th>
@@ -106,11 +117,11 @@
 												@php 													
 													$total_qty = $total_qty+$cart_item->qty;
 												@endphp
-												<td><input type="number" name=qty[] value="{{$cart_item->qty}}" min=1 max=100 /></td>
+												<td><input type="hidden" name=qty[] value="{{$cart_item->qty}}" min=1 max=100 />{{$cart_item->qty}}</td>
 												@php 
 													$total_cart_value = $total_cart_value + $cart_item->qty * $item_data->price;
 												@endphp
-												<td><input type="hidden" name=price[] value="{{number_format($cart_item->qty * $item_data->price,2)}}" min=1 max=100 />{{number_format($cart_item->qty * $item_data->price,2)}}<a href="{{route('admin.remove_cart_item',['id' => $cart_item->product_id, 'cartid' => $cart->id])}}" class="round remove-item" data-url="{{route('admin.remove_cart_item',['id' => $cart_item->product_id, 'cartid' => $cart->id])}}" data-rowid="#row{{$cart_item->product_id}}"><i class="la la-times"></i></a></td>
+												<td><input type="hidden" name=price[] value="{{number_format($cart_item->qty * $item_data->price,2)}}" min=1 max=100 />{{number_format($cart_item->qty * $item_data->price,2)}}</td>
 											</tr>
 											@endforeach
 										@else
@@ -134,8 +145,8 @@
 								@if(count($cart_items)>0)
 								<div class="col-md-12 text-right mt-30">
 									<div class="form-group">
-                                        <button type="submit" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Add Product"><i class="la la-pencil"></i> Update Cart</button>									
-										<!--<button type="button" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Checkout"><i class="la la-credit-card"></i> Checkout</button>-->
+                                        <a href="{{route('admin.cart', $cart->id)}}" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout"><i class="la la-pencil"></i> Edit Cart</a>									
+										<button type="button" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Checkout"><i class="la la-credit-card"></i> Place order</button>
 									</div>										
 								</div>
 								@endif
