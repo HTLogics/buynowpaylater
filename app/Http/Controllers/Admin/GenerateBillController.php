@@ -11,6 +11,8 @@ use App\Models\Product;
 use App\Models\Customer;
 use App\Models\Cart;
 use App\Models\Cart_item;
+use App\Models\Order;
+use App\Models\Order_item;
 use Validator;
 
 use DB;
@@ -138,5 +140,87 @@ class GenerateBillController extends Controller
 		
 	}
 	
-
+    public function placeOrder(Request $request,  $cartid){
+		
+		//define rules
+		$rules = [
+			'customer_id' => 'required',
+			"product_id"    => "required|array",
+            "product_id.*"  => "required",
+		];
+		
+		$validator = Validator::make($request->all(), $rules);
+		if($validator->fails()){
+			return response()->json(array(
+				'errors' => $validator->getMessageBag()->toArray(),
+				'status' => false,
+				'message' => "<div class='alert alert-danger'>There Were Errors.</div>"
+			));
+		}
+		
+		$order_data = array();
+		$order_data = array(
+		    'order_number' => $this->generateUniqueCode(),
+			'customer_id' => $request->customer_id,
+			'customer_name' => $request->customer_name,
+			'customer_email' => $request->customer_email,
+			'customer_phone' => $request->customer_phone,
+			'customer_address' => $request->customer_address,
+			'customer_city' => $request->customer_city,
+			'customer_country' => $request->customer_country,
+			'customer_zip' => $request->customer_zip,
+			'method' => $request->payment_method,
+			'total_qty' => $request->total_qty,
+			'total_amount' => str_replace(',', '', $request->total_amount),
+			'pay_amount' => str_replace(',', '', $request->total_amount),
+			'payment_status' => 'pending',
+			'status' => 'pending',
+		);		
+		$order = Order::create($order_data);		
+		if($order){
+			$order_item_data = array();
+			$ids = $request->product_id;
+			$product_name = $request->product_name;
+			$price = $request->price;
+			$qty = $request->qty;
+			$i = 0;
+			foreach($ids as $id){
+				$order_item_data = array(
+					'order_id' => $order->id,
+					'product_id' => $id,
+					'product' => $product_name[$i],	
+					'qty' => $qty[$i],
+					'price' => $price[$i],
+				);
+				$order_item = Order_item::create($order_item_data);
+				$i++;
+			}			
+			if($order_item){
+				return response()->json(array(
+					'redirect' => route('admin.order_history'),
+					'status' => true,
+					'message' => "<div class='alert alert-success'>Order Placed. please wait...</div>",
+				));
+			}			
+		}else{
+			/*--- if unsuccessful, then show error ---*/
+            return response()->json(array('errors' => [ 0 => 'Order not placed. Please try agian !' ]));
+		}
+		/*--- if unsuccessful, then show error ---*/
+        return response()->json(array('errors' => [ 0 => 'Order not saved. Please try agian !' ]));
+	}
+	
+	/**
+     * Write code on Method
+     *
+     * @return response()
+     */
+    public function generateUniqueCode()
+    {
+        do {
+            $code = random_int(1000000, 9999999);
+        } while (Order::where("order_number", "=", $code)->first());
+  
+        return $code;
+    }
 }

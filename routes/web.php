@@ -21,9 +21,6 @@ use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\LoginFrontController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
 
-
-
-
 //admin
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
@@ -106,6 +103,7 @@ Route::prefix('admin')->group(function () {
     Route::get('/remove_cart_item/{id}/{cartid}', [GenerateBillController::class, 'removeCartItem'])->name('admin.remove_cart_item');
 	Route::post('/update_cart/{id}', [GenerateBillController::class, 'updateCart'])->name('admin.update_cart');
 	Route::get('/checkout/{id}', [GenerateBillController::class, 'getCheckout'])->name('admin.checkout');
+	Route::post('/place_order/{id}', [GenerateBillController::class, 'placeOrder'])->name('admin.place_order');
 	
 	/*------------ Payment ------------*/
     Route::get('/payment', [PaymentController::class, 'index'])->name('admin.payment');

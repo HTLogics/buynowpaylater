@@ -135,7 +135,7 @@
 								<div class="col-md-12 text-right mt-30">
 									<div class="form-group">
                                         <button type="submit" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Add Product"><i class="la la-pencil"></i> Update Cart</button>									
-										<!--<button type="button" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Checkout"><i class="la la-credit-card"></i> Checkout</button>-->
+										<a href='{{route("admin.checkout", $cart->id)}}' class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Checkout">Checkout <i class="la la-arrow-right"></i></a>
 									</div>										
 								</div>
 								@endif

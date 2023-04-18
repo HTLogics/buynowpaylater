@@ -1497,7 +1497,13 @@ button#add-items-to-bill,
 .mt-30 {
 	margin-top: 30px
 }
-
+.checkout-payment-method {
+    padding: 10px 15px;
+}
+.checkout-payment-method img {
+    margin-left: 10px;
+    vertical-align: middle;
+}
 @media (min-width: 320px) and (max-width: 767px) {
 
 	.tab-Details {

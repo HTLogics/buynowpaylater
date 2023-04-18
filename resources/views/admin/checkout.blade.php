@@ -15,7 +15,7 @@
 			</div>
 			<div class="kt-portlet__body">
 			    @include('includes.admin.flash-message')
-				<form action="{{ route('admin.update_cart', $cart->id) }}" name="update_cart" enctype="multipart/form-data" id="update_cart" method="post">
+				<form action="{{ route('admin.place_order', $cart->id) }}" name="update_cart" enctype="multipart/form-data" id="update_cart" method="post">
 				@csrf
 				<div class="panel panel-success col-h">
 					<div class="panel panel-success col-h">							
@@ -23,7 +23,7 @@
 								<div class="row">
 									<div class="col-lg-6">
 										<div class="kt-card">
-											<h3 class="kt-card-heading"><i class="la la-home"></i> Billing Address</h3>
+											<h3 class="kt-card-heading step-title"><i class="la la-home"></i> Billing Address</h3>
 											<table class="table table-borderless" style="max-width:600px">
 												<tbody>
 													<tr>
@@ -82,7 +82,8 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="kt-card">
-											<h3 class="kt-card-heading"><i class="la la-credit-card"></i> Payment Method</h3>
+											<h3 class="kt-card-heading step-title"><i class="la la-credit-card"></i> Payment Method</h3>
+											<div class="checkout-payment-method"><input type="radio" name="payment_method" value="razorpay" checked/> <label for="payment_method"><img src="{{asset('public/assets/admin/media/razorpay.png')}}"/></label></div>
 										</div>
 									</div>	
 								</div>
@@ -90,7 +91,7 @@
 								<table class="table table-striped- table-bordered table-hover table-checkable dtr-inline" id="product-items">
 									<thead>
 									    <tr>
-											<td colspan="4" class="kt-card-heading">
+											<td colspan="4" class="kt-card-heading step-title">
 												<i class="la la-check-circle"></i> Order Summary
 											</td>
 										</td>	
@@ -146,7 +147,7 @@
 								<div class="col-md-12 text-right mt-30">
 									<div class="form-group">
                                         <a href="{{route('admin.cart', $cart->id)}}" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout"><i class="la la-pencil"></i> Edit Cart</a>									
-										<button type="button" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Checkout"><i class="la la-credit-card"></i> Place order</button>
+										<button type="button" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Checkout"><i class="la la-plus"></i> Place order</button>
 									</div>										
 								</div>
 								@endif
