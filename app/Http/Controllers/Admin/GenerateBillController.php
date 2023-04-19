@@ -166,7 +166,7 @@ class GenerateBillController extends Controller
 			'customer_email' => $request->customer_email,
 			'customer_phone' => $request->customer_phone,
 			'customer_address' => $request->customer_address,
-			'customer_city' => $request->customer_city,
+			'customer_state' => $request->customer_state,
 			'customer_country' => $request->customer_country,
 			'customer_zip' => $request->customer_zip,
 			'method' => $request->payment_method,

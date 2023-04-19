@@ -7,10 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use InvalidArgumentException;
 use Illuminate\Support\Facades\Hash;
-use App\Models\Product;
-use App\Models\User;
 use App\Models\Order;
-use App\Models\Blog;
 use DB;
 class OrderHistoryController extends Controller
 {

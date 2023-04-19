@@ -75,7 +75,7 @@
 											<input type="hidden" name="customer_email" value="{{$customer->email}}"/>
 											<input type="hidden" name="customer_phone" value="{{$customer->phone}}"/>
 											<input type="hidden" name="customer_address" value="{{$customer->address}}"/>
-											<input type="hidden" name="customer_city" value="{{$customer->city}}"/>
+											<input type="hidden" name="customer_state" value="{{$customer->state}}"/>
 											<input type="hidden" name="customer_country" value="{{$customer->country}}"/>
 											<input type="hidden" name="customer_zip" value="{{$customer->zip}}"/>
 										</div>
@@ -147,7 +147,7 @@
 								<div class="col-md-12 text-right mt-30">
 									<div class="form-group">
                                         <a href="{{route('admin.cart', $cart->id)}}" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout"><i class="la la-pencil"></i> Edit Cart</a>									
-										<button type="button" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Checkout"><i class="la la-plus"></i> Place order</button>
+										<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm proceed-to-checkout" data-label="Checkout"><i class="la la-plus"></i> Place order</button>
 									</div>										
 								</div>
 								@endif
