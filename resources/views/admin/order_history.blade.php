@@ -10,16 +10,16 @@
 		<div class="kt-portlet__head">
 			<div class="kt-portlet__head-label">
 				<h3 class="kt-portlet__head-title">
-					Order History
+					Orders History
 				</h3>
 			</div>
 			<div class="kt-portlet__head-toolbar">
 				<div class="kt-portlet__head-wrapper">
 					<div class="kt-portlet__head-actions" style="margin-left:20px">
-						<!--<a href="{{ route('admin.add_category') }}" class="btn btn-brand btn-elevate btn-icon-sm">
+						<a href="{{ route('admin.Generate_bill') }}" class="btn btn-brand btn-elevate btn-icon-sm">
 							<i class="la la-plus"></i>
-							Add New Category
-						</a>-->
+							Generate Bill
+						</a>
 					</div>
 				</div>
 			</div>
@@ -33,26 +33,20 @@
 				<div class="kt-section__content">
 				 @include('includes.admin.flash-message')
 				   
-					<table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline" id="items_table">
+					<table class="table table-striped- table-bordered table-hover table-checkable dataTable no-footer dtr-inline" id="orders_table">
 						<thead>
 							<tr>
-								<th>Order Id</th>
+								<th>Sno</th>
+								<th>Order Number</th>
 								<th>Customer Name</th>
+								<th>Customer Email</th>
+								<th>Customer Phone</th>
 								<th>Order Status</th>
 								<th>Total Amount</th>								
 								<th>Action</th>
 							</tr>
 						</thead>
-						<tbody>						    
-						<tr role="row" class="odd">
-						<td tabindex="0">#1001</td>
-						<td>abc</td>
-						<td>open</td>
-						<td>12000.00</td>
-						<td><a class="btn btn-sm btn-info" href="{{ route('admin.order_view') }}"><i class="la la-eye"></i> View</a> </td>
-						</tr>
-						
-						
+						<tbody>	
 						</tbody>
 					</table>
 				</div>
@@ -65,4 +59,26 @@
 	<!--end::Portlet-->
 </div>
 <!-- end:: Content -->
+@endsection
+@section('scripts')
+<script>
+jQuery(function () {
+    var table = $('#orders_table').DataTable({
+		responsive: true,
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('admin.order_data') }}",
+        columns: [
+            {data: 'DT_RowIndex', name: 'DT_RowIndex'},
+            {data: 'order_number', name: 'order_number'},
+            {data: 'customer_name', name: 'customer_name'},
+            {data: 'customer_email', name: 'customer_email'},
+            {data: 'customer_phone', name: 'customer_phone'},
+            {data: 'status', name: 'status'},
+            {data: 'total_amount', name: 'total_amount'},
+            {data: 'action', name: 'action', orderable: false, searchable: false},
+        ]
+    });
+});
+</script>
 @endsection
