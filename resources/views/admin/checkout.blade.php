@@ -114,7 +114,7 @@
 													$item_data = DB::table('products')->select('id','name', 'price')->where('id', '=', $cart_item->product_id)->first();
 												@endphp
 												<td><input type="hidden" name=product_id[] value="{{$cart_item->product_id}}"/><input type="hidden" name=product_name[] value="{{$item_data->name}}"/>{{$item_data->name}}</td>
-												<td>{{number_format($item_data->price,2)}}</td>
+												<td><input type="hidden" name=price[] value="{{number_format($item_data->price,2)}}" min=1 max=100 />{{number_format($item_data->price,2)}}</td>
 												@php 													
 													$total_qty = $total_qty+$cart_item->qty;
 												@endphp
@@ -122,7 +122,7 @@
 												@php 
 													$total_cart_value = $total_cart_value + $cart_item->qty * $item_data->price;
 												@endphp
-												<td><input type="hidden" name=price[] value="{{number_format($cart_item->qty * $item_data->price,2)}}" min=1 max=100 />{{number_format($cart_item->qty * $item_data->price,2)}}</td>
+												<td>{{number_format($cart_item->qty * $item_data->price,2)}}</td>
 											</tr>
 											@endforeach
 										@else
