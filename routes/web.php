@@ -25,11 +25,9 @@ use App\Http\Controllers\Frontend\ForgotPasswordController;
 use App\Http\Controllers\Admin\LoginController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\CustomerController;
-use App\Http\Controllers\Admin\AddItemController;
 use App\Http\Controllers\Admin\GenerateBillController;
 use App\Http\Controllers\Admin\ItemsController;
 use App\Http\Controllers\Admin\CategoryController;
-use App\Http\Controllers\Admin\AddCategoryController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\OrderHistoryController;
 use App\Http\Controllers\Admin\OrderViewController;
@@ -110,7 +108,9 @@ Route::prefix('admin')->group(function () {
 	
 	/*------------ Order History ------------*/
     Route::get('/order-history', [OrderHistoryController::class, 'index'])->name('admin.order_history');
-	Route::get('/order-history/1', [OrderViewController::class, 'index'])->name('admin.order_view');
+    Route::get('/order_data', [OrderHistoryController::class, 'orderData'])->name('admin.order_data');
+	Route::get('/order_view/{id}', [OrderHistoryController::Class, 'viewOrder'])->name('admin.order_view');
+	/*Route::get('/order-history/1', [OrderViewController::class, 'index'])->name('admin.order_view');*/
 	
 	/*---sate---*/	
 	Route::get('/states/{id}', [CustomerController::class, 'getState'])->name('admin.states');
