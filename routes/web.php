@@ -30,9 +30,6 @@ use App\Http\Controllers\Admin\ItemsController;
 use App\Http\Controllers\Admin\CategoryController;
 use App\Http\Controllers\Admin\PaymentController;
 use App\Http\Controllers\Admin\OrderHistoryController;
-use App\Http\Controllers\Admin\OrderViewController;
-
-
 
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -96,12 +93,32 @@ Route::prefix('admin')->group(function () {
 	
     /*------------ Generate Bill ------------*/
     Route::get('/generate-bill', [GenerateBillController::class, 'index'])->name('admin.Generate_bill');
+	
     Route::post('/save_cart', [GenerateBillController::class, 'saveCart'])->name('admin.save_cart');
     Route::get('/cart/{id}', [GenerateBillController::class, 'getCart'])->name('admin.cart');
     Route::get('/remove_cart_item/{id}/{cartid}', [GenerateBillController::class, 'removeCartItem'])->name('admin.remove_cart_item');
 	Route::post('/update_cart/{id}', [GenerateBillController::class, 'updateCart'])->name('admin.update_cart');
+	
 	Route::get('/checkout/{id}', [GenerateBillController::class, 'getCheckout'])->name('admin.checkout');
 	Route::post('/place_order/{id}', [GenerateBillController::class, 'placeOrder'])->name('admin.place_order');
+	
+	Route::get('/create_plan/{customer_id}/{cart_id}/{amount}', [GenerateBillController::class, 'createPlan'])->name('admin.create_plan');
+	Route::post('/save_plan', [GenerateBillController::class, 'savePlan'])->name('admin.save_plan');
+	
+	Route::get('/create_subscription/{plan_id}/{customer_id}/{cart_id}', [GenerateBillController::class, 'createSubscription'])->name('admin.create_subscription');
+	Route::post('/save_subscription', [GenerateBillController::class, 'saveSubscription'])->name('admin.save_subscription');
+	Route::get('/get_subscriptions_select', [GenerateBillController::class, 'getSubscriptionsSelect'])->name('admin.get_subscriptions_select');
+	
+	Route::get('/collect_payment/{id}', [GenerateBillController::class, 'paymentCollect'])->name('admin.payment_collect');
+	Route::get('/payment_response', [GenerateBillController::class, 'paymentResponse'])->name('admin.payment_response');
+	
+	
+	
+	/*test*/
+	Route::get('/razor', [GenerateBillController::class, 'razorTest'])->name('admin.razor');
+	Route::get('/test_create_plan', [GenerateBillController::class, 'create_plan'])->name('admin.test_create_plan');
+	Route::get('/create_sub', [GenerateBillController::class, 'create_sub'])->name('admin.create_sub');
+	Route::post('/razor_pay', [GenerateBillController::class, 'razorResponse'])->name('admin.razor_response');
 	
 	/*------------ Payment ------------*/
     Route::get('/payment', [PaymentController::class, 'index'])->name('admin.payment');
@@ -110,9 +127,8 @@ Route::prefix('admin')->group(function () {
     Route::get('/order-history', [OrderHistoryController::class, 'index'])->name('admin.order_history');
     Route::get('/order_data', [OrderHistoryController::class, 'orderData'])->name('admin.order_data');
 	Route::get('/order_view/{id}', [OrderHistoryController::Class, 'viewOrder'])->name('admin.order_view');
-	/*Route::get('/order-history/1', [OrderViewController::class, 'index'])->name('admin.order_view');*/
 	
-	/*---sate---*/	
+	/*------------ state ------------*/
 	Route::get('/states/{id}', [CustomerController::class, 'getState'])->name('admin.states');
 	
 });

@@ -82,12 +82,30 @@
 									</div>
 									<div class="col-lg-6">
 										<div class="kt-card">
-											<h3 class="kt-card-heading step-title"><i class="la la-credit-card"></i> Payment Method</h3>
-											<div class="checkout-payment-method"><input type="radio" name="payment_method" value="razorpay" checked/> <label for="payment_method"><img src="{{asset('public/assets/admin/media/razorpay.png')}}"/></label></div>
+											<h3 class="kt-card-heading step-title"><i class="la la-credit-card"></i> Payment Type</h3>
+											<div class="checkout-payment-method">											
+												<input type="hidden" name="payment_method" value="razorpay" checked/> 
+												<label for="payment_method">
+													<!--<img src="{{asset('public/assets/admin/media/razorpay.png')}}"/>-->
+													EMI (Easy Installments)<br>
+													<small>Pay 25% today and 75% on installments</small>
+												</label>
+											</div>
+											<div class="checkout-payment-method">
+												<label>Select Subscription</label>
+												<select name="subscription_id" class="form-control">
+													<option value="">--Choose Subscription--</option>
+													@foreach($subscriptions as $subscription)
+														<option value="{{$subscription->subscription_id}}">{{$subscription->subscription_id}}</option>
+													@endforeach
+												</select>
+											</div>
+											<!--<div class="checkout-payment-method">
+												<button class="btn btn-primary" type="button" name="create_subscription" id="create_plan"><i class="la la-plus"></i> Create New Subscription</button> 
+											</div>-->
 										</div>
 									</div>	
-								</div>
-								
+								</div>								
 								<table class="table table-striped- table-bordered table-hover table-checkable dtr-inline" id="product-items">
 									<thead>
 									    <tr>
@@ -167,6 +185,21 @@
 	</div>
 	<!-- end:: Content -->
 </div>
+<div class="modal fade" id="subscription" tabindex="-1" role="dialog" aria-labelledby="subscriptionLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+			<h5 class="modal-title" id="exampleModalLabel">Create Plan</h5>
+			<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+		</div>
+		<div class="modal-body" id="form-subscription">
+			<center>Loading data...</center>
+		</div>
+    </div>
+  </div>
+</div>
 @endsection
 
 @section('scripts')
@@ -215,8 +248,8 @@ jQuery("#update_cart").submit(function(e) {
 			jQuery('#message').html(data.message);    
 			var a= data['errors'];     
 			jQuery.each(data.errors, function(key, value){           
-				jQuery("input[name='"+key+"'],textarea[name='"+key+"']").css('border','1px solid red'); 
-				jQuery("input[name='"+key+"'],textarea[name='"+key+"']").after("<small class='mes'>"+value+"</small>");
+				jQuery("input[name='"+key+"'],select[name='"+key+"']").css('border','1px solid red'); 
+				jQuery("input[name='"+key+"'],select[name='"+key+"']").after("<small class='mes'>"+value+"</small>");
 		   });
 		}
 		if(data.status==true){       
@@ -234,6 +267,25 @@ jQuery("#update_cart").submit(function(e) {
 		jQuery('.loader').hide();			
 	   }
     });
+});
+
+/*create plan*/
+$('#create_plan').click(function(){
+	$('#subscription').modal({
+		backdrop: 'static', keyboard: false, show: true		
+	});
+	$('#form-subscription').html('<center>Loading data...</center>');
+	jQuery.ajax({
+		type: "GET",
+		url: "{{route('admin.create_plan', ['customer_id'=>$customer->id,'cart_id'=>$cart->id,'amount'=>$total_cart_value])}}",
+		processData: true,
+		contentType: true,
+		success: function(data)
+		{
+			$('#form-subscription').html(data);		
+		}
+	});
+	
 });
 </script>
 

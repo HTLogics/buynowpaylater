@@ -22,37 +22,37 @@
 										<div class="col-lg-12">
 										@csrf
 										<input type="hidden" name="id" value="{{$customer->id}}">
-										<div class="col-md-12 mb-5">										
+										<div class="col-md-12">										
 											<div class="form-group">
 												<label>First Name*</label>										
 												<input type="text" name="firstname" class="form-control" placeholder="First Name" value="{{$customer->firstname}}">
 											</div>
 										</div>
-										<div class="col-md-12 mb-5">										
+										<div class="col-md-12">										
 											<div class="form-group">
 												<label>Last Name*</label>										
 												<input type="text" name="lastname" class="form-control" placeholder="Last Name" value="{{$customer->lastname}}">
 											</div>
 										</div>
-										<div class="col-md-12 mb-5">										
+										<div class="col-md-12">										
 											<div class="form-group">
 												<label>Email*</label>
 												<input type="email" name="email" class="form-control" placeholder="Email Address" value="{{$customer->email}}">
 											</div>
 										</div>										
-										<div class="col-md-12 mb-5">										
+										<div class="col-md-12">										
 											<div class="form-group">
 												<label>Phone</label>
 												<input type="text" name="phone" class="form-control" placeholder="Phone Number" value="{{$customer->phone}}">
 											</div>
 										</div>
-										<div class="col-md-12 mb-5">										
+										<div class="col-md-12">										
 											<div class="form-group">
 												<label>Address</label>										
 												<input type="text" name="address" class="form-control" placeholder="Address" value="{{$customer->address}}">
 											</div>
 										</div>
-										<div class="col-md-12 mb-5">										
+										<div class="col-md-12">										
 											<div class="form-group">
 												<label>Country</label>										
 												<select name="country" class="form-control" id="country">
@@ -63,7 +63,7 @@
 												</select>
 											</div>
 										</div>
-										<div class="col-md-12 mb-5">										
+										<div class="col-md-12">										
 											<div class="form-group">
 												<label>State</label>										
 												<select name="state" class="form-control" id="state">
@@ -77,13 +77,13 @@
 												</select>
 											</div>
 										</div>																				
-										<div class="col-md-12 mb-5">										
+										<div class="col-md-12">										
 											<div class="form-group">
 												<label>Zip</label>										
 												<input type="text" name="zip" class="form-control" placeholder="Zip Code" value="{{$customer->zip}}">
 											</div>
 										</div>										
-										<div class="col-md-12 mb-5">										
+										<div class="col-md-12">										
 											<div class="form-group">
 												<label>Status</label>
 												<select name="status" class="form-control">
@@ -92,7 +92,7 @@
 												</select>
 											</div>
 										</div>
-										<div class="col-md-12 mb-5">
+										<div class="col-md-12">
 											<div class="form-group">											
 												<button type="submit" class="btn btn-brand btn-elevate btn-icon-sm" data-label="Add Page"><i class="la la-pencil"></i> Edit User</button>
 											</div>										

@@ -10,8 +10,8 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Order;
 use App\Models\Order_item;
 use DataTables;
-use DB;
 
+use DB;
 class OrderHistoryController extends Controller
 {
 
