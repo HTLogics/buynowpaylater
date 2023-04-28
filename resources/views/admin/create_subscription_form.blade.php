@@ -58,7 +58,7 @@ jQuery("#create_sub_form").submit(function(e) {
 			jQuery("#message").delay(3000);
 			jQuery.ajax({
 				type: "GET",
-				url: "{{route('admin.get_subscriptions_select')}}",
+				url: "{{route('admin.get_subscriptions_select')}}?customer_id={{$customer_id}}&cart_id={{$cart_id}}",
 				success: function(data)
 				{
 					jQuery('select[name="subscription_id"]').html(data);		

@@ -21,9 +21,9 @@
 							<div class="panel-body">
 								<div class="row">
 									<div class="col-lg-12">
-										<div class="kt-card">
-											<h3 class="kt-card-heading step-title"><i class="la la-credit-card"></i> Payment Status</h3>
-											@include('includes.admin.flash-message')
+									    @include('includes.admin.flash-message')
+										<div class="kt-card">										    
+											<h3 class="kt-card-heading step-title"><i class="la la-credit-card"></i> Payment Status</h3>											
 											<table class="table table-borderless" style="max-width:600px">
 												<tbody>
 													<tr>
@@ -34,12 +34,17 @@
 													<tr>
 														<th width="45%">Paid Amount</th>
 														<th width="10%">:</th>
-														<td width="45%">{{$response->amount}}</td>
+														<td width="45%">{{$response->currency}} {{$response->amount/100}}</td>
 													</tr>
 													<tr>
-														<th width="45%">Currency</th>
+														<th width="45%">Payer Email</th>
 														<th width="10%">:</th>
-														<td width="45%">{{$response->currency}}</td>
+														<td width="45%">{{$response->email}}</td>
+													</tr>
+													<tr>
+														<th width="45%">Payer Contact</th>
+														<th width="10%">:</th>
+														<td width="45%">{{$response->contact}}</td>
 													</tr>
 													<tr>
 														<th width="45%">Payment Method</th>
@@ -50,16 +55,10 @@
 														<th width="45%">Payment Status</th>
 														<th width="10%">:</th>
 														<td width="45%">{{$response->status}}</td>
-													</tr>													
-													
-													<tr>
-														<th width="45%">Payer Email</th>
-														<th width="10%">:</th>
-														<td width="45%">{{$response->email}}</td>
 													</tr>
-													
 												</tbody>
 											</table>
+											<center><a href="{{route('admin.Generate_bill')}}" class="btn btn-brand btn-elevate btn-icon-sm"> Continue Shopping</a> <a href="{{route('admin.order_history')}}" class="btn btn-brand btn-elevate btn-icon-sm">Go Back Orders</a><center>
 										</div>
 									</div>
 								</div>							

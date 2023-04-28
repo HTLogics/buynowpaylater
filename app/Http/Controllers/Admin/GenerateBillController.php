@@ -400,7 +400,7 @@ class GenerateBillController extends Controller
 				return view('admin.payment_response', $response);
 			}
 		}
-		$data['response'] = $response;
+		$data['response'] = $response;		
 		if($response['status'] == "captured"){
 			Session::flash('success', 'Payment Successful');
 		}else{
@@ -409,10 +409,25 @@ class GenerateBillController extends Controller
         return view('admin.payment_response', $data);
 	}
 	
-	public function getSubscriptionsSelect(){
+	public function getSubscriptionData(Request $request) {
+		
+		$api = new Api (env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+		$subscription = $api->subscription->fetch($request['subscription_id']);
+		
+		$api2 = new Api (env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+		$plan = $api2->plan->fetch($subscription->plan_id);
+		
+		$data['subscription'] = $subscription;	
+		$data['plan'] = $plan;
+		
+        return view('admin.get_subscription_data', $data);
+		
+	}
+	
+	public function getSubscriptionsSelect(Request $request){
 		
 		$data = array();		
-		$data['subscriptions'] = Subscription::all();
+		$data['subscriptions'] = Subscription::where('customer_id', '=', $request['customer_id'])->where('cart_id', '=', $request['cart_id'])->get();
 		return view('admin.get_subscriptions_select', $data);
 		
 	}
@@ -473,7 +488,7 @@ class GenerateBillController extends Controller
 				return redirect()->back();
 			}
 		}
-		Session::put('success', 'Payment Successful');
+		Session::put('success', 'Payment Successful!');
 		return redirect()->back();
 	}
 }

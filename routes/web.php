@@ -108,6 +108,7 @@ Route::prefix('admin')->group(function () {
 	Route::get('/create_subscription/{plan_id}/{customer_id}/{cart_id}', [GenerateBillController::class, 'createSubscription'])->name('admin.create_subscription');
 	Route::post('/save_subscription', [GenerateBillController::class, 'saveSubscription'])->name('admin.save_subscription');
 	Route::get('/get_subscriptions_select', [GenerateBillController::class, 'getSubscriptionsSelect'])->name('admin.get_subscriptions_select');
+	Route::get('/get_subscription_data', [GenerateBillController::class, 'getSubscriptionData'])->name('admin.get_subscription_data');
 	
 	Route::get('/collect_payment/{id}', [GenerateBillController::class, 'paymentCollect'])->name('admin.payment_collect');
 	Route::get('/payment_response', [GenerateBillController::class, 'paymentResponse'])->name('admin.payment_response');

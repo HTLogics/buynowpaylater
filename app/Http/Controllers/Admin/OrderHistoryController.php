@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Models\Order;
 use App\Models\Order_item;
 use DataTables;
+use Razorpay\Api\Api;
 
 use DB;
 class OrderHistoryController extends Controller
@@ -50,6 +51,7 @@ class OrderHistoryController extends Controller
 	}
 	
 	public function viewOrder($id){
+		
 		if(!Order::where('id',$id)->exists())
         {
             return redirect()->route('admin.dashboard')->with('unsuccess',__('Sorry the page does not exist.'));
@@ -57,6 +59,21 @@ class OrderHistoryController extends Controller
 		$data = array();
 		$data['order_data'] = Order::findOrFail($id);
 		$data['order_items'] = Order_item::where('order_id', '=',$id)->get();
+		
+		/*get subscription detail from api*/
+		$api = new Api (env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+		$subscription = $api->subscription->fetch($data['order_data']->subscription_id);
+		
+		/*get plan detail from api*/
+		$api2 = new Api (env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+		$plan = $api2->plan->fetch($subscription->plan_id);
+		
+		$invoices = $api->invoice->all(['subscription_id'=>$data['order_data']->subscription_id]);
+
+		$data['subscription'] = $subscription;	
+		$data['plan'] = $plan;
+		$data['invoices'] = $invoices;
+		
 		return view('admin.order_view', $data);
 		
 	}

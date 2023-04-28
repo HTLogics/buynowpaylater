@@ -93,12 +93,15 @@
 											</div>
 											<div class="checkout-payment-method">
 												<label>Select Subscription</label>
-												<select name="subscription_id" class="form-control">
+												<select name="subscription_id" class="form-control" id="subscription_id">
 													<option value="">--Choose Subscription--</option>
 													@foreach($subscriptions as $subscription)
 														<option value="{{$subscription->subscription_id}}">{{$subscription->subscription_id}}</option>
 													@endforeach
 												</select>
+												<div id="subscription_details">
+													
+												</div>
 											</div>
 											<!--<div class="checkout-payment-method">
 												<button class="btn btn-primary" type="button" name="create_subscription" id="create_plan"><i class="la la-plus"></i> Create New Subscription</button> 
@@ -285,6 +288,26 @@ $('#create_plan').click(function(){
 			$('#form-subscription').html(data);		
 		}
 	});
+	
+});
+
+$("#subscription_id").on("change", function(){
+	var subscription = $(this).val();
+	if(subscription != ""){
+		$('#subscription_details').html('<div class="kt-spinner kt-spinner--sm kt-spinner--success" style="margin-top: 20px;"><span style="margin-left: 25px;">loading data please wait...</span></div> ');
+		$.ajax({
+			type:'GET',
+			url:"{{route('admin.get_subscription_data')}}?subscription_id="+subscription,
+			processData: true,
+			contentType: true,
+			success: function(data)
+			{
+				$('#subscription_details').html(data);		
+			}
+		});
+	}else{
+		$('#subscription_details').html("");
+	}
 	
 });
 </script>

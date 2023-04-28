@@ -1,5 +1,16 @@
 @extends('layouts.admin')
 @section('content')
+<style>
+.step-title-2 {
+    background-color: #f2f2f2;
+    padding: 12px 10px 12px 12px !important;
+    font-weight: bold !important;
+    font-size: 14px !important;
+    color: #333333 !important;
+    text-transform: uppercase;
+    line-height: 30px;
+}
+</style>
 <!-- begin:: Content -->
 <div class="kt-container  kt-container--fluid  kt-grid__item kt-grid__item--fluid" style="margin-top:30px">
 	<!--Begin::Dashboard 6-->
@@ -48,10 +59,15 @@
 																		</th><td width="45%">{{number_format($order_data->total_amount, 2)}}</td>
 																	</tr>
 																	<tr>
-																		<th width="45%">Payment Method</th>
+																		<th width="45%">Payment Gateway</th>
 																		<th width="10%">:
 																		</th><td width="45%">{{$order_data->method}}</td>
 																	</tr>
+																	<tr>
+																		<th width="45%">Payment Type</th>
+																		<th width="10%">:
+																		</th><td width="45%">{{$order_data->method_type}}</td>
+																	</tr>																	
 																	<tr>
 																		<th width="45%">Payment Status</th>
 																		<th width="10%">:</th>
@@ -127,6 +143,88 @@
 													</div>
 												</div>
 											</div>
+											<!--<div class="row">
+												<div class="col-lg-12">
+													<div class="kt-card">
+														<h3 class="kt-card-heading step-title">Subscription Details</h3>
+														<div class="table-responsive-sm">
+														    <div class="col-lg-12">
+																<table class="table table-striped- table-bordered">
+																	<tr class="step-title-2">
+																		<td colspan="2">Plan</td>
+																	</tr>    
+																	<tr>
+																		<td>Plan Id</td>
+																		<td>{{$subscription->plan_id}}</td>
+																	</tr>
+																	<tr>
+																		<td>Plan Name</td>
+																		<td>{{$plan->item->name}}</td>
+																	</tr>
+																	<tr>
+																		<td>Amount</td>
+																		<td>{{$plan->item->currency}} {{number_format($plan->item->amount/100, 2)}}</td>
+																	</tr>
+																	<tr class="step-title-2">
+																		<td colspan="2">Subscription</td>
+																	</tr>
+																	<tr>
+																		<td>Subscription Id</td>
+																		<td>{{$subscription->id}}</td>
+																	</tr>
+																	<tr>
+																		<td>Status</td>
+																		<td>{{$subscription->status}}</td>
+																	</tr>
+																	<tr>
+																		<td>No of Installments</td>
+																		<td>{{$subscription->total_count}}</td>
+																	</tr>
+																	<tr>
+																		<td>No of Paid Installment</td>
+																		<td>{{$subscription->paid_count}}</td>
+																	</tr>
+																	<tr>
+																		<td>Subscription Type</td>
+																		<td>{{$plan->period}}</td>
+																	</tr>
+																	<tr>
+																		<td>Created Date</td>
+																		<td>{{date('d M Y', $subscription->created_at)}}</td>
+																	</tr>
+																</table>
+																<div class="table-responsive-sm" style="overflow-x:auto;">
+																	<table class="table table-striped- table-bordered">
+																		<tr class="step-title-2">
+																			<td colspan="7">Transaction details</td>
+																		</tr>
+																		<tr>
+																			<td>Id</td>
+																			<td>Order Id</td>
+																			<td>Subscription Id</td>
+																			<td>Payment Id</td>
+																			<td>Status</td>
+																			<td>Issued At</td>
+																			<td>Paid At</td>
+																		</tr>
+																		@foreach($invoices->items as $invoice)
+																		<tr>
+																			<td>{{$invoice->id}}</td>
+																			<td>{{$invoice->order_id}}</td>	
+																			<td>{{$invoice->subscription_id}}</td>	
+																			<td>{{$invoice->payment_id}}</td>	
+																			<td>{{$invoice->status}}</td>	
+																			<td>{{$invoice->issued_at}}</td>
+																			<td>{{$invoice->paid_at}}</td>
+																		</tr>
+																		@endforeach
+																	</table>
+																</div>
+															</div>
+														</div>
+													</div>		
+												</div>
+											</div>-->
 											<div class="row">
 												<div class="col-lg-12">
 													<div class="kt-invoice-card">
@@ -160,11 +258,11 @@
 																		<td width="20%">{{$i}}</th>
 																		<td>{{$order_item['product']}}</th>
 																		<td width="20%">{{$order_item['qty']}}</th>
-																		<td width="20%">{{$order_item['price']}}</th>
+																		<td width="20%">{{number_format( $order_item['price'], 2)}}</th>
 																		@php
 																			$total_product_cost = $order_item['price']*$order_item['qty'];
 																		@endphp															
-																		<td width="20%">{{$total_product_cost}}</td>
+																		<td width="20%"> {{number_format($total_product_cost, 2)}}</td>
 																	</tr>
 																	@php
 																		$subtotal += round($total_product_cost, 2);
@@ -175,13 +273,12 @@
 																	<tr>
 																		<td colspan="3"></td>
 																		<th>Subtotal</th>
-																		<td>{{ round($subtotal, 2) }}</td>
+																		<td>{{ number_format($subtotal, 2) }}</td>
 																	</tr>																	
 																	<tr>
 																		<td colspan="3"></td>
 																		<th>Total</th>
-																		<td>{{ round($order_data->total_amount, 2) }}
-																		</td>
+																		<td>{{ number_format($order_data->total_amount, 2) }}
 																	</tr>
 																</tfoot>
 															</table>
