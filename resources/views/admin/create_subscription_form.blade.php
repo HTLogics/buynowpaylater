@@ -1,4 +1,4 @@
-<form action="{{route('admin.save_subscription')}}" method="post" name="create_plan" id="create_sub_form">
+<form action="{{route('admin.save_subscription')}}" method="post" name="create_plan" id="create_sub_form1">
 	<div class="form-group">
 		<div class="row">
 		    @csrf

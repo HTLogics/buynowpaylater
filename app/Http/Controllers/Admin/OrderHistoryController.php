@@ -60,16 +60,25 @@ class OrderHistoryController extends Controller
 		$data['order_data'] = Order::findOrFail($id);
 		$data['order_items'] = Order_item::where('order_id', '=',$id)->get();
 		
-		/*get subscription detail from api*/
-		$api = new Api (env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
-		$subscription = $api->subscription->fetch($data['order_data']->subscription_id);
 		
-		/*get plan detail from api*/
-		$api2 = new Api (env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
-		$plan = $api2->plan->fetch($subscription->plan_id);
 		
-		$invoices = $api->invoice->all(['subscription_id'=>$data['order_data']->subscription_id]);
-
+		if($data['order_data']->subscription_id){
+			/*get subscription detail from api*/
+			$api = new Api (env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+			$subscription = $api->subscription->fetch($data['order_data']->subscription_id);
+			
+			/*get plan detail from api*/
+			$api2 = new Api (env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
+			$plan = $api2->plan->fetch($subscription->plan_id);
+			
+			$invoices = $api->invoice->all(['subscription_id'=>$data['order_data']->subscription_id]);
+		}else{
+			$subscription = $plan = $invoices = "";
+		}
+		
+        //print_r($plan);
+        //print_r($subscription);
+        //print_r($invoices);
 		$data['subscription'] = $subscription;	
 		$data['plan'] = $plan;
 		$data['invoices'] = $invoices;

@@ -143,6 +143,7 @@
 													</div>
 												</div>
 											</div>
+											@if($subscription != "")
 											<!--<div class="row">
 												<div class="col-lg-12">
 													<div class="kt-card">
@@ -154,43 +155,51 @@
 																		<td colspan="2">Plan</td>
 																	</tr>    
 																	<tr>
-																		<td>Plan Id</td>
+																		<th>Plan Id</th>
 																		<td>{{$subscription->plan_id}}</td>
 																	</tr>
 																	<tr>
-																		<td>Plan Name</td>
+																		<th>Plan Name</th>
 																		<td>{{$plan->item->name}}</td>
 																	</tr>
 																	<tr>
-																		<td>Amount</td>
+																		<th>Amount</th>
 																		<td>{{$plan->item->currency}} {{number_format($plan->item->amount/100, 2)}}</td>
 																	</tr>
 																	<tr class="step-title-2">
 																		<td colspan="2">Subscription</td>
 																	</tr>
 																	<tr>
-																		<td>Subscription Id</td>
+																		<th>Subscription Id</th>
 																		<td>{{$subscription->id}}</td>
 																	</tr>
 																	<tr>
-																		<td>Status</td>
-																		<td>{{$subscription->status}}</td>
+																		<th>Status</th>
+																		<td>
+																		@if($subscription->status == 'active' || $subscription->status == 'completed')
+																			<span class="badge badge-success ">{{$subscription->status}}</span>	
+																		@elseif($subscription->status == 'cancelled' || $subscription->status == 'paused' || $subscription->status == 'expired' ||  $subscription->status == 'halted' || $subscription->status == 'pause')
+																		    <span class="badge badge-danger">{{$subscription->status}}</span>
+																		@else
+																			<span class="badge badge-secondary ">{{$subscription->status}}</span>	
+																		@endif	
+																		</td>
 																	</tr>
 																	<tr>
-																		<td>No of Installments</td>
+																		<th>No of Installments</th>
 																		<td>{{$subscription->total_count}}</td>
 																	</tr>
 																	<tr>
-																		<td>No of Paid Installment</td>
+																		<th>No of Paid Installment</th>
 																		<td>{{$subscription->paid_count}}</td>
 																	</tr>
 																	<tr>
-																		<td>Subscription Type</td>
+																		<th>Subscription Type</th>
 																		<td>{{$plan->period}}</td>
 																	</tr>
 																	<tr>
-																		<td>Created Date</td>
-																		<td>{{date('d M Y', $subscription->created_at)}}</td>
+																		<th>Created Date</th>
+																		<td>{{date('d M Y H:i:s', $subscription->created_at)}}</td>
 																	</tr>
 																</table>
 																<div class="table-responsive-sm" style="overflow-x:auto;">
@@ -199,13 +208,13 @@
 																			<td colspan="7">Transaction details</td>
 																		</tr>
 																		<tr>
-																			<td>Id</td>
-																			<td>Order Id</td>
-																			<td>Subscription Id</td>
-																			<td>Payment Id</td>
-																			<td>Status</td>
-																			<td>Issued At</td>
-																			<td>Paid At</td>
+																			<th>Id</th>
+																			<th>Order Id</th>
+																			<th>Subscription Id</th>
+																			<th>Payment Id</th>
+																			<th>Status</th>
+																			<th>Issued At</th>
+																			<th>Paid At</th>
 																		</tr>
 																		@foreach($invoices->items as $invoice)
 																		<tr>
@@ -214,8 +223,8 @@
 																			<td>{{$invoice->subscription_id}}</td>	
 																			<td>{{$invoice->payment_id}}</td>	
 																			<td>{{$invoice->status}}</td>	
-																			<td>{{$invoice->issued_at}}</td>
-																			<td>{{$invoice->paid_at}}</td>
+																			<td>{{date('d M Y H:s:i', $invoice->issued_at)}}</td>
+																			<td>{{date('d M Y H:i:s', $invoice->paid_at)}}</td>
 																		</tr>
 																		@endforeach
 																	</table>
@@ -225,6 +234,7 @@
 													</div>		
 												</div>
 											</div>-->
+											@endif;
 											<div class="row">
 												<div class="col-lg-12">
 													<div class="kt-invoice-card">

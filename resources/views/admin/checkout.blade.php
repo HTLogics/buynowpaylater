@@ -103,9 +103,9 @@
 													
 												</div>
 											</div>
-											<!--<div class="checkout-payment-method">
+											<div class="checkout-payment-method">
 												<button class="btn btn-primary" type="button" name="create_subscription" id="create_plan"><i class="la la-plus"></i> Create New Subscription</button> 
-											</div>-->
+											</div>
 										</div>
 									</div>	
 								</div>								
