@@ -73,7 +73,7 @@
 										</div>
 									</div>
 									<div class="col-lg-12">
-                                        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js"></script>									
+                                        <script type="text/javascript" src="{{asset('public/assets/admin/js/jquery.min.js')}}"></script>									
 										<script src = "https://checkout.razorpay.com/v1/checkout.js"></script>
 										<script>
 										    var SITEURL = '{{URL::to('')}}';
