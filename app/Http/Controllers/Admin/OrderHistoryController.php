@@ -83,7 +83,7 @@ class OrderHistoryController extends Controller
 		$data['plan'] = $plan;
 		$data['invoices'] = $invoices;
 		
-		return view('admin.order_view', $data);
+		return view('admin.order_details', $data);
 		
 	}
 

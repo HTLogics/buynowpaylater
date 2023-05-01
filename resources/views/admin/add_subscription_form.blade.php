@@ -1,4 +1,4 @@
-<form action="{{route('admin.save_subscription')}}" method="post" name="create_plan" id="create_sub_form1">
+<form action="{{route('admin.save_subscription')}}" method="post" name="create_plan" id="generate_sub_form">
 	<div class="form-group">
 		<div class="row">
 		    @csrf
@@ -18,7 +18,7 @@
 </form>
 <script>
 /*form submission event*/
-jQuery("#create_sub_form").submit(function(e) {
+jQuery("#generate_sub_form").submit(function(e) {
 	
 	e.preventDefault();
 	jQuery('.loader').show();
@@ -40,20 +40,20 @@ jQuery("#create_sub_form").submit(function(e) {
 		console.log(data); 
 		if(data.status== false){
 			console.log(data);
-			jQuery('#create_sub_form #message').html(data.message);    
+			jQuery('#generate_sub_form #message').html(data.message);    
 			var a= data['errors'];     
 			jQuery.each(data.errors, function(key, value){           
-				jQuery("#create_sub_form input[name='"+key+"'],#create_sub_form  textarea[name='"+key+"'],#create_sub_form  select[name='"+key+"']").css('border','1px solid red'); 
-				jQuery("#create_sub_form  input[name='"+key+"'],#create_sub_form textarea[name='"+key+"'],#create_sub_form  select[name='"+key+"']").after("<small class='mes'>"+value+"</small>");
+				jQuery("#generate_sub_form input[name='"+key+"'],#generate_sub_form  textarea[name='"+key+"'],#generate_sub_form  select[name='"+key+"']").css('border','1px solid red'); 
+				jQuery("#generate_sub_form  input[name='"+key+"'],#generate_sub_form textarea[name='"+key+"'],#generate_sub_form  select[name='"+key+"']").after("<small class='mes'>"+value+"</small>");
 		   });
 		}
 		if(data.status==true){
 			
-			jQuery("#create_sub_form input[type=text],select,textarea").css('border','1px solid #1abb9c').delay( 2000 ).css('border','1px solid #e2e2e4');
-			jQuery('#create_sub_form #message').html(data.message);  
-			jQuery("#create_sub_form #message").fadeIn(100);
+			jQuery("#generate_sub_form input[type=text],select,textarea").css('border','1px solid #1abb9c').delay( 2000 ).css('border','1px solid #e2e2e4');
+			jQuery('#generate_sub_form #message').html(data.message);  
+			jQuery("#generate_sub_form #message").fadeIn(100);
 			jQuery("html, body").animate({
-				scrollTop: jQuery("#create_sub_form #message").offset().top-100
+				scrollTop: jQuery("#generate_sub_form #message").offset().top-100
 			}, 1000);
 			jQuery("#message").delay(3000);
 			jQuery.ajax({

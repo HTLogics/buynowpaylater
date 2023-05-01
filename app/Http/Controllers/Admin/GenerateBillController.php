@@ -307,7 +307,7 @@ class GenerateBillController extends Controller
 	    $data['plan_id'] = $plan_id;
 	    $data['customer_id'] = $customer_id;
 	    $data['cart_id'] = $cart_id;
-        return view('admin.create_subscription_form', $data);
+        return view('admin.add_subscription_form', $data);
     }	
 	
 	public function saveSubscription(Request $request){
@@ -320,16 +320,21 @@ class GenerateBillController extends Controller
 		];
 		
 		$validator = Validator::make($request->all(), $rules);
+		
 		if($validator->fails()){
+			
 			return response()->json(array(
 				'errors' => $validator->getMessageBag()->toArray(),
 				'status' => false,
 				'message' => "<div class='alert alert-danger'>There Were Errors.</div>"
 			));
+			
 		}
+		
 		$api = new Api (env('RAZORPAY_KEY'), env('RAZORPAY_SECRET'));
 		$timestamp = now();
 		$data = $api->subscription->create(
+		
 			array(
 				'plan_id' => $request->plan_id,
 				'customer_notify' => 1,
@@ -337,6 +342,7 @@ class GenerateBillController extends Controller
 				'total_count' => 4,
 				'start_at' => $timestamp,
 			)
+			
 		);
 
 		if($data->id){
