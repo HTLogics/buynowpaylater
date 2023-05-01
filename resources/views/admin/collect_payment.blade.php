@@ -69,7 +69,7 @@
 													</tr>
 												</tbody>
 											</table>
-											<div class="text-center"><button id = "rzp-button1" class="btn btn-primary">Pay Now</button></div>
+											<div class="text-center"><button id = "rzp-button1" class="btn btn-primary"  type="button">Pay Now</button></div>
 										</div>
 									</div>
 									<div class="col-lg-12">
