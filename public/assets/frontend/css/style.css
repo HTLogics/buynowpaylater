@@ -1315,7 +1315,11 @@ button.close.alert-close {
     opacity: .5;
     border: 0 !important;
 }
-
+.footer-address{
+    min-height: 49px;
+    display: inline-block;
+    float: left;
+}
 @media(min-width:320px) and (max-width:767px){
 	html, body { overflow-x: hidden;}
 	.navbar-brand img { width: 150px;}
