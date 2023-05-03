@@ -43,21 +43,21 @@
                 <div class="col-sm-4">
 				<div class="contact-box">
 				<div class="cont-icon"><i class="fa fa-map-marker-alt me-3"></i></div>
-				<div class="cont-txt">123 Street, New York, USA</div>
+				<div class="cont-txt">SCF 12 Suncity, Ropar (1400001), Opposite Kamal Nursing Home</div>
 				</div>
 				</div>
 				
 				<div class="col-sm-4">
 				<div class="contact-box">
 				<div class="cont-icon"><i class="fa fa-phone-alt me-3"></i></div>
-				<div class="cont-txt"><a href="tel:+012 345 67890">+012 345 67890</a></div>
+				<div class="cont-txt"><a href="tel:+918264266734">+918264266734</a></div>
 				</div>
 				</div>
 				
 				<div class="col-sm-4">
 				<div class="contact-box">
 				<div class="cont-icon"><i class="fa fa-envelope me-3"></i></div>
-				<div class="cont-txt"><a href="mailto:info@example.com">info@example.com</a></div>
+				<div class="cont-txt"><a href="mailto:safebuy95@gmail.com">safebuy95@gmail.com</a></div>
 				</div>
 				</div>
             </div>
