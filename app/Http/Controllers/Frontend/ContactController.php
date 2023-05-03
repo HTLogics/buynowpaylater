@@ -51,8 +51,8 @@ class ContactController extends Controller
 			);
 			
 		$send = Mail::send('frontend.contact_mail', $data, function($message) {
-			$message->to('daljit@htlogics.com', 'Safe Buy')->subject('Safe Buy - Contact');
-			$message->from('daljit@htlogics.com','Safe Buy');
+			$message->to('safebuy95@gmail.com', 'Safe Buy')->subject('Safe Buy - Contact');
+			$message->from('safebuy95@gmail.com','Safe Buy');
 		});
 	  
 		if($send){
