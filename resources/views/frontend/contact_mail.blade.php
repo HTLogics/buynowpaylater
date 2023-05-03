@@ -65,7 +65,7 @@
 												<b>Name</b>
 											</td>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:#202020;line-height:1.5">
-												{{name}}
+												{{$name}}
 											</td>
 										</tr>
 										<tr>
@@ -73,7 +73,7 @@
 												<b>Email</b>
 											</td>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:#202020;line-height:1.5">
-												{{email}}
+												{{$email}}
 											</td>
 										</tr>
 										<tr>
@@ -81,7 +81,7 @@
 												<b>Phone</b>
 											</td>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:#202020;line-height:1.5;padding: 0;">
-												{{mobile}}
+												{{$mobile}}
 											</td>
 										</tr>
 										<tr>
@@ -89,7 +89,7 @@
 												<b>Service</b>
 											</td>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:#202020;line-height:1.5">
-												{{service}}
+												{{$service}}
 											</td>
 										</tr>														
 										<tr>
@@ -97,7 +97,7 @@
 												<b>Note</b>
 											</td>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:#202020;line-height:1.5">
-												{{note}}
+												{{$note}}
 											</td>
 										</tr>
 									</tbody></table>
