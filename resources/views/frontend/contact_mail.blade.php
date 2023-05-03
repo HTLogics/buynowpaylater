@@ -1,9 +1,9 @@
 <table border="0" cellspacing="0" cellpadding="0" style="max-width:600px">
 	<tbody>
-	<tr>
+	<tr style="background: #e6e6e6;">
 		<td>
-			<table width="100%" border="0" cellspacing="0" cellpadding="0">
-				<tbody>
+			<table width="100%" border="0" cellspacing="0" cellpadding="0" style="padding: 10px;">
+			<tbody>
 				<tr>
 					<td align="left" style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:24px;color:#202020">
 						<a style="color:#003366;text-decoration:none" href="{{URL::to('/');}}" target="_blank">
@@ -15,10 +15,10 @@
 						<a style="text-decoration:none;color:rgb(153, 1, 6)"></a>
 					</td>
 				</tr>
-			</tbody></table>
+			</tbody>
+			</table>
 		</td>
 	</tr>
-	<tr><td height="16px">&nbsp;</td></tr>
 	<tr>
 		<td>
 			<table bgcolor="rgb(153, 1, 6)" width="100%" border="0" cellspacing="0" cellpadding="0" style="min-width:332px;max-width:600px;border:1px solid #e0e0e0;border-bottom:0;border-top-left-radius:3px;border-top-right-radius:3px;background: rgb(50, 195, 108);">
