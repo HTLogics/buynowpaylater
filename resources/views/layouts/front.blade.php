@@ -60,7 +60,7 @@
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center me-4">
                     <small class="fa fa-phone-alt me-2"></small>
-                    <small>+918264266734</small>
+                    <small><a href="tel:+918264266734" class="link-footer">+918264266734</a></small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center mx-n2">
                     <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" target="__blank" href="https://www.facebook.com/profile.php?id=100076256435901"><i class="fab fa-facebook-f"></i></a>
@@ -176,8 +176,8 @@
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Address</h5>
                     <p class="mb-2"><span class="footer-address"><i class="fa fa-map-marker-alt me-3"></i></span>SCF 12 Suncity, Ropar (1400001), Opposite Kamal Nursing Home</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+918264266734</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>safebuy95@gmail.com</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i><a href="tel:+918264266734" class="link-footer">+918264266734</a></p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i><a href="mailto:safebuy95@gmail.com" class="link-footer">safebuy95@gmail.com</a></p>
                     <div class="d-flex pt-2">
 					    <a class="btn btn-square btn-outline-light btn-social" target="_blank" href="https://www.facebook.com/profile.php?id=100076256435901"><i class="fab fa-facebook-f"></i></a>						
 						<a class="btn btn-square btn-outline-light btn-social" target="_blank" href="https://instagram.com/safebuy95?igshid=ZDdkNTZiNTM="><i class="fab fa-instagram"></i></a>
