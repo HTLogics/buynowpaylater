@@ -155,11 +155,8 @@ jQuery("#contact_form").submit(function(e) {
 			jQuery("#message").fadeIn(100);
 			jQuery("html, body").animate({
 				scrollTop: jQuery("#message").offset().top-100
-			}, 1000);
-			jQuery("#message").delay(3000);
-			setTimeout(function() {
-			   window.location.href = data.redirect;
-			}, 3000);		
+			}, 2000);
+			jQuery("#message").delay(3000);		
 		}
 		jQuery('.loader').hide();			
 	   }
