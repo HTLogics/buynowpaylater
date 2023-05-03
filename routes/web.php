@@ -40,6 +40,7 @@ Route::get('/products', [ProductController::class, 'index'])->name('product');
 Route::get('/shop', [ShopController::class, 'index'])->name('shop');
 Route::get('/outwear', [OutwearController::class, 'index'])->name('outwear');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
+Route::post('/contact_submit', [ContactController::class, 'submitContact'])->name('contact_submit');
 Route::get('/login', [LoginFrontController::class, 'index'])->name('login');
 Route::get('/forgot', [ForgotPasswordController::class, 'index'])->name('forgot');
 Route::get('/support', [SupportController::class, 'index'])->name('support');

@@ -1329,6 +1329,12 @@ a.link-footer {
 .contact-box:hover a {
     color: #ffffff;
 }
+form#contact_form small.mes {
+    color: red;
+    font-size: 12px;
+    min-height: 30px;
+    display: inline-block;
+}
 @media(min-width:320px) and (max-width:767px){
 	html, body { overflow-x: hidden;}
 	.navbar-brand img { width: 150px;}

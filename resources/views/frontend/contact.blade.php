@@ -52,8 +52,7 @@
 				<div class="cont-icon"><i class="fa fa-phone-alt me-3"></i></div>
 				<div class="cont-txt"><a href="tel:+918264266734">+918264266734</a></div>
 				</div>
-				</div>
-				
+				</div>				
 				<div class="col-sm-4">
 				<div class="contact-box">
 				<div class="cont-icon"><i class="fa fa-envelope me-3"></i></div>
@@ -62,12 +61,8 @@
 				</div>
             </div>
 			
-			
-        </div>
-						
+        </div>						
     </div>
-	
-	
     <!-- Quote Start -->
     <div class="container-fluid bg-light overflow-hidden px-lg-0">
         <div class="container quote px-lg-0">
@@ -82,30 +77,35 @@
                         <h6 class="text-primary">Free Quote</h6>
                         <h1 class="mb-4">Get A Free Quote</h1>
                         <p class="mb-4 pb-2">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo erat amet</p>
-                        <form>
+                        <form action="{{route('contact_submit')}}" method="POST" id="contact_form" name="contact_form">
+						    @csrf
                             <div class="row g-3">
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Name" style="height: 55px;">
+                                    <input type="text" class="form-control border-0" name="name" placeholder="Your Name" style="height: 55px;margin: 0;">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="email" class="form-control border-0" placeholder="Your Email" style="height: 55px;">
+                                    <input type="email" class="form-control border-0" name="email" placeholder="Your Email" style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <input type="text" class="form-control border-0" placeholder="Your Mobile" style="height: 55px;">
+                                    <input type="text" class="form-control border-0" name="mobile" placeholder="Your Mobile" style="height: 55px;">
                                 </div>
                                 <div class="col-12 col-sm-6">
-                                    <select class="form-select border-0" style="height: 55px;">
-                                        <option selected>Select A Service</option>
-                                        <option value="1">Service 1</option>
-                                        <option value="2">Service 2</option>
-                                        <option value="3">Service 3</option>
+                                    <select class="form-select border-0"  name="service" style="height: 55px;">
+                                        <option value="" selected>Select A Service</option>
+                                        <option value="Service 1">Service 1</option>
+                                        <option value="Service 2">Service 2</option>
+                                        <option value="Service 3">Service 3</option>
                                     </select>
                                 </div>
                                 <div class="col-12">
-                                    <textarea class="form-control border-0" placeholder="Special Note"></textarea>
+                                    <textarea name="note" class="form-control border-0" style="min-height: 100px;" placeholder="Note"></textarea>
                                 </div>
                                 <div class="col-12">
                                     <button class="btn btn-primary rounded-pill py-3 px-5" type="submit">Submit</button>
+                                </div>
+								<div class="col-12">
+								    <div class="loader"></div>
+                                    <div id="message"></div>
                                 </div>
                             </div>
                         </form>
@@ -116,6 +116,56 @@
     </div>
     <!-- Quote End -->
 </section>
+@endsection
+@section("scripts")
+<script>
+/*form submission event*/
+jQuery("#contact_form").submit(function(e) {
+	
+	e.preventDefault();
+	jQuery('.loader').show();
+	jQuery('.loader').html('<br><div class="loader-text alert alert-warning">Please wait...</div>');
+	jQuery("input,select,textarea").css('border','1px solid black');
+	jQuery('.mes').remove();
+    var url = jQuery(this).attr('action');
+	var formData = new FormData(jQuery(this)[0]);
+
+    jQuery.ajax({
+	   type: "POST",
+	   url: url,
+	   data:  formData, 
+	   processData: false,
+	   dataType:'json',
+	   contentType: false,
+	   success: function(data)
+	   {
+		console.log(data); 
+		if(data.status== false){
+			console.log(data);
+			jQuery('#message').html(data.message);    
+			var a= data['errors'];     
+			jQuery.each(data.errors, function(key, value){           
+				jQuery("input[name='"+key+"'],select[name='"+key+"'],textarea[name='"+key+"']").css('border','1px solid red'); 
+				jQuery("input[name='"+key+"'],select[name='"+key+"'],textarea[name='"+key+"']").after("<small class='mes'>"+value+"</small>");
+		   });
+		}
+		if(data.status==true){       
+			jQuery("input[type=text],select,textarea").css('border','1px solid #1abb9c').delay( 2000 ).css('border','1px solid #e2e2e4');
+			jQuery('#message').html(data.message);  
+			jQuery("#message").fadeIn(100);
+			jQuery("html, body").animate({
+				scrollTop: jQuery("#message").offset().top-100
+			}, 1000);
+			jQuery("#message").delay(3000);
+			setTimeout(function() {
+			   window.location.href = data.redirect;
+			}, 3000);		
+		}
+		jQuery('.loader').hide();			
+	   }
+    });
+});
+</script>
 @endsection
 
 
