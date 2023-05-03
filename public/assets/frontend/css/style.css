@@ -1323,6 +1323,12 @@ button.close.alert-close {
 a.link-footer {
     color: #9B9B9B;
 }
+.contact-box a {
+    color: #000000;
+}
+.contact-box:hover a {
+    color: #ffffff;
+}
 @media(min-width:320px) and (max-width:767px){
 	html, body { overflow-x: hidden;}
 	.navbar-brand img { width: 150px;}
