@@ -64,9 +64,10 @@
                 </div>
                 <div class="h-100 d-inline-flex align-items-center mx-n2">
                     <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" target="__blank" href="https://www.facebook.com/profile.php?id=100076256435901"><i class="fab fa-facebook-f"></i></a>
+					<a class="btn btn-square btn-link rounded-0" target="__blank" href="https://instagram.com/safebuy95?igshid=ZDdkNTZiNTM="><i class="fab fa-instagram"></i></a>
                     <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" target="__blank" href="#"><i class="fab fa-twitter"></i></a>
                     <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" target="__blank" href="#"><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-square btn-link rounded-0" target="__blank" href="https://instagram.com/safebuy95?igshid=ZDdkNTZiNTM="><i class="fab fa-instagram"></i></a>
+                    
                 </div>
             </div>
         </div>
@@ -178,7 +179,7 @@
                     <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+918264266734</p>
                     <p class="mb-2"><i class="fa fa-envelope me-3"></i>safebuy95@gmail.com</p>
                     <div class="d-flex pt-2">
-					    <a class="btn btn-square btn-outline-light btn-social" target="_blank" href="https://www.facebook.com/profile.php?id=100076256435901"><i class="fab fa-facebook-f"></i></a>
+					    <a class="btn btn-square btn-outline-light btn-social" target="_blank" href="https://www.facebook.com/profile.php?id=100076256435901"><i class="fab fa-facebook-f"></i></a>						
 						<a class="btn btn-square btn-outline-light btn-social" target="_blank" href="https://instagram.com/safebuy95?igshid=ZDdkNTZiNTM="><i class="fab fa-instagram"></i></a>
                         <a class="btn btn-square btn-outline-light btn-social" target="_blank" href=""><i class="fab fa-twitter"></i></a>
 						<a class="btn btn-square btn-outline-light btn-social"  target="_blank" href=""><i class="fab fa-linkedin-in"></i></a>
