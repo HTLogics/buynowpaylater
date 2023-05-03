@@ -7,7 +7,7 @@
 				<tr>
 					<td align="left" style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:24px;color:#202020">
 						<a style="color:#003366;text-decoration:none" href="{{URL::to('/');}}" target="_blank">
-						<img style="float:left" alt="Safe Buy" src="{{asset('public/assets/frontend/img/safebuy-logo.webp')}}" height="60" width="auto" class="CToWUd"></a>
+						<img style="float:left" alt="Safe Buy" src="{{asset('public/assets/frontend/img/safebuy.png')}}" height="60" width="auto" class="CToWUd"></a>
 					</td>
 					<td align="right" style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:#202020">
 						+918264266734<br>
