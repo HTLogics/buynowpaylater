@@ -60,13 +60,13 @@
             <div class="col-lg-5 px-5 text-end">
                 <div class="h-100 d-inline-flex align-items-center me-4">
                     <small class="fa fa-phone-alt me-2"></small>
-                    <small>+012 345 6789</small>
+                    <small>+918264266734</small>
                 </div>
                 <div class="h-100 d-inline-flex align-items-center mx-n2">
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-facebook-f"></i></a>
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-twitter"></i></a>
-                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" href=""><i class="fab fa-linkedin-in"></i></a>
-                    <a class="btn btn-square btn-link rounded-0" href=""><i class="fab fa-instagram"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" target="__blank" href="https://www.facebook.com/profile.php?id=100076256435901"><i class="fab fa-facebook-f"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" target="__blank" href="#"><i class="fab fa-twitter"></i></a>
+                    <a class="btn btn-square btn-link rounded-0 border-0 border-end border-secondary" target="__blank" href="#"><i class="fab fa-linkedin-in"></i></a>
+                    <a class="btn btn-square btn-link rounded-0" target="__blank" href="https://instagram.com/safebuy95?igshid=ZDdkNTZiNTM="><i class="fab fa-instagram"></i></a>
                 </div>
             </div>
         </div>
@@ -174,35 +174,35 @@
             <div class="row g-5">
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Address</h5>
-                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>123 Street, New York, USA</p>
-                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+012 345 67890</p>
-                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>info@example.com</p>
+                    <p class="mb-2"><i class="fa fa-map-marker-alt me-3"></i>SCF 12 Suncity, Ropar (1400001), Opposite Kamal Nursing Home</p>
+                    <p class="mb-2"><i class="fa fa-phone-alt me-3"></i>+918264266734</p>
+                    <p class="mb-2"><i class="fa fa-envelope me-3"></i>safebuy95@gmail.com</p>
                     <div class="d-flex pt-2">
-                        <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
-                        <a class="btn btn-square btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
+					    <a class="btn btn-square btn-outline-light btn-social" target="_blank" href="https://www.facebook.com/profile.php?id=100076256435901"><i class="fab fa-facebook-f"></i></a>
+						<a class="btn btn-square btn-outline-light btn-social" target="_blank" href="https://instagram.com/safebuy95?igshid=ZDdkNTZiNTM="><i class="fab fa-instagram"></i></a>
+                        <a class="btn btn-square btn-outline-light btn-social" target="_blank" href=""><i class="fab fa-twitter"></i></a>
+						<a class="btn btn-square btn-outline-light btn-social"  target="_blank" href=""><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Quick Links</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Shop Now</a>
-                    <a class="btn btn-link" href="">Terms &amp; Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
+                    <a class="btn btn-link" href="{{route('about')}}">About Us</a>
+                    <a class="btn btn-link" href="{{route('contact')}}">Contact Us</a>
+                    <a class="btn btn-link" href="{{route('shop')}}">Shop Now</a>
+                    <a class="btn btn-link" href="{{route('terms')}}">Terms &amp; Condition</a>
+                    <a class="btn btn-link" href="{{route('support')}}">Support</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Resources</h5>
-                    <a class="btn btn-link" href="">About Us</a>
-                    <a class="btn btn-link" href="">Contact Us</a>
-                    <a class="btn btn-link" href="">Our Products</a>
-                    <a class="btn btn-link" href="">Terms &amp; Condition</a>
-                    <a class="btn btn-link" href="">Support</a>
+                    <a class="btn btn-link" href="{{route('about')}}">About Us</a>
+                    <a class="btn btn-link" href="{{route('contact')}}">Contact Us</a>
+                    <a class="btn btn-link" href="{{route('shop')}}">Shop Now</a>
+                    <a class="btn btn-link" href="{{route('terms')}}">Terms &amp; Condition</a>
+                    <a class="btn btn-link" href="{{route('support')}}">Support</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h5 class="text-white mb-4">Newsletter</h5>
-                    <p>Dolor amet sit justo amet elitr clita ipsum elitr est.</p>
+                    <p>Subscribe to our newsletter.</p>
                     <div class="position-relative mx-auto" style="max-width: 400px;">
                         <input class="form-control border-0 w-100 py-3 ps-4 pe-5" type="text" placeholder="Your email">
                         <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">SignUp</button>
@@ -218,7 +218,7 @@
                     </div>
                     <div class="col-md-6 text-center text-md-end">
                       
-                        Designed By <a href="https://htmlcodex.com">HT Logics Pvt. Ltd</a>
+                        Designed By <a href="https://htlogics.com">HT Logics Pvt. Ltd</a>
                       
                     </div>
                 </div>

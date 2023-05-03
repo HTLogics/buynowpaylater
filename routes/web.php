@@ -20,6 +20,8 @@ use App\Http\Controllers\Frontend\OutwearController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\LoginFrontController;
 use App\Http\Controllers\Frontend\ForgotPasswordController;
+use App\Http\Controllers\Frontend\TermsConditionsController;
+use App\Http\Controllers\Frontend\SupportController;
 
 //admin
 use App\Http\Controllers\Admin\LoginController;
@@ -40,6 +42,8 @@ Route::get('/outwear', [OutwearController::class, 'index'])->name('outwear');
 Route::get('/contact-us', [ContactController::class, 'index'])->name('contact');
 Route::get('/login', [LoginFrontController::class, 'index'])->name('login');
 Route::get('/forgot', [ForgotPasswordController::class, 'index'])->name('forgot');
+Route::get('/support', [SupportController::class, 'index'])->name('support');
+Route::get('/terms-and-conditions', [TermsConditionsController::class, 'index'])->name('terms');
 
 
 
@@ -112,6 +116,11 @@ Route::prefix('admin')->group(function () {
 	
 	Route::get('/collect_payment/{id}', [GenerateBillController::class, 'paymentCollect'])->name('admin.payment_collect');
 	Route::get('/payment_response', [GenerateBillController::class, 'paymentResponse'])->name('admin.payment_response');
+	
+	Route::get('/pause_subscription/{id}', [GenerateBillController::class, 'pauseSubscription'])->name('admin.pause_subscription');
+	Route::get('/resume_subscription/{id}', [GenerateBillController::class, 'resumeSubscription'])->name('admin.resume_subscription');
+	
+	
 	
 	
 	

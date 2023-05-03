@@ -684,6 +684,7 @@ section.inner-banner::before {
     text-align: center;
     padding: 40px 20px;
     color: #000;margin-bottom:10px;
+	min-height: 220px;
 }
 .cont-icon i {
     font-size: 30px;
