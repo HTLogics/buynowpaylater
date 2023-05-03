@@ -52,7 +52,7 @@ class ContactController extends Controller
 			
 		$send = Mail::send('frontend.contact_mail', $data, function($message) {
 			$message->to('daljit@htlogics.com', 'Safe Buy')->subject('Safe Buy - Contact');
-			$message->from('daljit@htlogics.com','Daljit');
+			$message->from('daljit@htlogics.com','Safe Buy');
 		});
 	  
 		if($send){
