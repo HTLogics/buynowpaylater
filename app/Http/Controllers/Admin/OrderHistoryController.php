@@ -28,7 +28,7 @@ class OrderHistoryController extends Controller
     }
 	
 	public function orderData(){
-		$data = Order::get();
+		$data = Order::orderBy('id', 'DESC')->get();
 		return DataTables::of($data)
 		       ->addIndexColumn()
 			   ->addColumn('order_number', function($data){
