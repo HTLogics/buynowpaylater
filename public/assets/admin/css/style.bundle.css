@@ -35602,7 +35602,7 @@ body {
   flex-direction: row;
   padding: 0 25px;
   height: 80px;
-  background-color: darkorchid;
+  background-color: #dbd5bd;
   -webkit-box-pack: center;
   -ms-flex-pack: center;
   justify-content: center;
