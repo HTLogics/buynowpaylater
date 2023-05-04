@@ -62,7 +62,7 @@
 										<tbody>															
 										<tr>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:rgb(153, 1, 6);line-height:1.5;padding: 0;">
-												<b>Name</b>
+												<b>Name:</b>
 											</td>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:#202020;line-height:1.5">
 												{{$name}}
@@ -70,7 +70,7 @@
 										</tr>
 										<tr>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:rgb(153, 1, 6);line-height:1.5;padding: 0;">
-												<b>Email</b>
+												<b>Email:</b>
 											</td>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:#202020;line-height:1.5">
 												{{$email}}
@@ -78,7 +78,7 @@
 										</tr>
 										<tr>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:rgb(153, 1, 6);line-height:1.5;padding: 0;">
-												<b>Phone</b>
+												<b>Phone:</b>
 											</td>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:#202020;line-height:1.5;padding: 0;">
 												{{$mobile}}
@@ -86,7 +86,7 @@
 										</tr>
 										<tr>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:rgb(153, 1, 6);line-height:1.5;padding: 0;">
-												<b>Service</b>
+												<b>Service:</b>
 											</td>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:#202020;line-height:1.5">
 												{{$service}}
@@ -94,7 +94,7 @@
 										</tr>														
 										<tr>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:rgb(153, 1, 6);line-height:1.5;padding: 0;">
-												<b>Note</b>
+												<b>Note:</b>
 											</td>
 											<td style="font-family:Roboto-Regular,Helvetica,Arial,sans-serif;font-size:14px;color:#202020;line-height:1.5">
 												{{$note}}

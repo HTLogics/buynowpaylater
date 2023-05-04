@@ -138,9 +138,9 @@ jQuery("#contact_form").submit(function(e) {
 				jQuery("input[type=text],select,textarea").val('');
 				jQuery('#message').html(data.message);
 				jQuery("#message").fadeIn(100);
-				jQuery("html, body").animate({
+				/*jQuery("html, body").animate({
 					scrollTop: jQuery("#message").offset().top - 100
-				}, 2000);
+				}, 2000);*/
 				jQuery("#message").delay(3000);
 			}
 			jQuery('.loader').hide();
